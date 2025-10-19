@@ -1,0 +1,48 @@
+def outer(fn):
+    def inner():
+        print('好笑吗')
+        fn()
+    return inner
+@outer
+def send():
+    print('哈哈哈，笑死我了')
+send()
+@outer
+def send1():
+    print('真的很好笑')
+send1()
+# 形参
+def outer(fn):
+    def inner(name):
+        print('你的名字是？')
+        fn(name)
+    return inner
+@outer
+def funa(name):
+    print('我的名字是', name)
+funa('guigui')
+# 可变参数
+def outer(fn):
+    def inner(*args,**kwargs):
+        print('这是可变参数')
+        fn(*args,**kwargs)
+    return inner
+@outer
+def funb(*args,**kwargs):
+    print(args,kwargs)
+funb('guigui','zz',age = 18)
+# 多个装饰器(由内往外)
+def decode(fn):
+    def inner():
+        return '你已经很棒了!' + fn() + '继续加油哟！！！'
+    return inner
+def decode2(fn):
+    def inner():
+        return '勇敢的勇者哟~' +fn() + '目前已经进阶到筑基阶段了！'
+    return inner
+@decode
+@decode2
+def func():
+    return '每天都在坚持学习python'
+print(func())
+# 你已经很棒了!勇敢的勇者哟~每天都在坚持学习python目前已经进阶到筑基阶段了！继续加油哟！！！2025/10/17
