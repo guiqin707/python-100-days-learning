@@ -1,0 +1,32 @@
+# 新式类写法
+# class A：经典类：不由任意内置函数类型派生出来的类
+# 有不同于父类的方法才叫派生类
+# class A():
+# class A(object):新式类，继承了object类或该类的子类都是新式类——推荐使用
+# object——对象，py为所有对象提供的基类（顶级父类），内置一些属性和方法可用dir()查看
+# print(dir(object))
+# py3中都是新式类
+# 多继承
+# 子类可以拥有多个父类，并且具有所有父类中的属性和方法(类中吕布)
+class father1(object):
+    def money(self):
+        print('有继承一千万要继承')
+class father2(object):
+    def money(self):
+        print('有一千二百万要继承')
+    def apperance(self):
+        print('美貌')
+class Son(father1,father2):#同名属性就近原则，括号里谁先出现，先继承谁
+    pass
+    # def money(self):
+    #     print('自己找了一百万')#如果子类中自己有同名属性，自己就调用自己的
+son = Son()
+son.money()
+son.apperance()
+# 不同父类存在同名属性
+# 开发时尽量避免同名属性
+# 方法的搜索顺序(了解)
+# py中的内置属性可以通过__mro__查看方法搜素顺序,从左往右搜索
+print(Son.__mro__)#(<class '__main__.Son'>, <class '__main__.father1'>, <class '__main__.father2'>, <class 'object'>)
+# 如果在当前类中找到方法就直接执行，不需要搜索
+# 如果找到最后一个类还没有找到方法，程序就会报错
