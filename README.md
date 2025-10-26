@@ -6,10 +6,10 @@
 
 | 项目 | 进度 |
 |------|------|
-| **总天数** | 35/100 天 |
+| **总天数** | 36/100 天 |
 | **开始日期** | 2025年9月 |
-| **代码文件数** | 8个 |
-| **提交次数** | 8 次 |
+| **代码文件数** | 9个 |
+| **提交次数** | 9 次 |
 
 ## 🗓️ 每日学习记录
 
@@ -24,9 +24,10 @@
 - **Day 33**: 新式类写法和多继承
 - **Day 34**: 多态、静态方法和类方法
 - **Day 35**: 单例模式&魔法方法（1）
+- **Day 36**: 单例模式&魔法方法（2）
 
 ### 🔄 进行中
-- **Day 36**: 单例模式&魔法方法（2）
+- **Day 37**: 文件的基本操作，文件读写
 
 ### ⏳ 待学习
 - 面向对象编程
@@ -58,19 +59,16 @@ https://space.bilibili.com/3546597933714079?spm_id_from=333.788.upinfo.head.clic
 
 ## 💻 今日代码示例
 
-class Person:
-    def __new__(cls, *args, **kwargs):
-        print('这是new方法')
-        re = super().__new__(cls)  # 1. 请父类创建对象
-        print(re)  # 2. 显示对象地址（给人看）
-        return re  # 3. 返回对象地址（给程序用）
-
-    def __init__(self, name):
-        self.name = name  # 4. 初始化对象属性
-        print(f'名字是{self.name}')
-        # 执行过程：
-pe = Person('guigui')
-print(pe)
+def func():
+    print('hhh')
+func()
+print(callable(func))
+class A(object):
+    def __call__(self):
+        print('这是__call__')
+a = A()
+a()#调用一个可调用的实例对象，其实就是在调用它的__call__()方法
+print(callable(a))
 📈 每周总结
 第1周总结
 学习内容: 环境搭建、GitHub使用、异常处理，闭包和装饰器，面向对象实例方法调用
