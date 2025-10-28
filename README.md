@@ -6,10 +6,10 @@
 
 | 项目 | 进度 |
 |------|------|
-| **总天数** | 37/100 天 |
+| **总天数** | 38/100 天 |
 | **开始日期** | 2025年9月 |
-| **代码文件数** | 10个 |
-| **提交次数** | 10 次 |
+| **代码文件数** | 11个 |
+| **提交次数** | 11 次 |
 
 ## 🗓️ 每日学习记录
 
@@ -26,9 +26,10 @@
 - **Day 35**: 单例模式&魔法方法（1）
 - **Day 36**: 单例模式&魔法方法（2）
 - **Day 37**: 文件的基本操作，文件读写
+- **Day 38**: 访问模式，文件定位操作
 
 ### 🔄 进行中
-- **Day 38**: 访问模式，文件定位操作
+- **Day 39**: with、open&编码格式、获取目录操作
 ### ⏳ 待学习
 - 面向对象编程
 - 文件操作
@@ -59,15 +60,14 @@ https://space.bilibili.com/3546597933714079?spm_id_from=333.788.upinfo.head.clic
 
 ## 💻 今日代码示例
 
-f = open('py8')
-# print(f.readline())
-# while True:
-#     text = f.readline()
-#     if not text:
-#         break
-#     print(text)
-for i in f:
-    print(i)
+f = open('py801','w+')
+f.write('hello python')
+pos = f.tell()
+print('移动前:',pos)#移动前: 12——文件长度
+f.seek(0,0)
+pos1 = f.tell()
+print('移动后：',pos1)
+print(f.read())
 f.close()
 📈 每周总结
 第6周总结
