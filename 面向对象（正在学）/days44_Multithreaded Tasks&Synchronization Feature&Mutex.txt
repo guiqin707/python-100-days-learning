@@ -1,0 +1,114 @@
+# 2.3线程之间执行是无序的
+# 线程执行是根据cpu调度决定的
+# import time
+# import threading
+# def task():
+#     time.sleep(1)
+#     print('当前线程是：',threading.current_thread().name)
+# if __name__ == "__main__":
+#     for i  in range(5):
+#         #每循环一次就创建一个子线程
+#         t = threading.Thread(target=task)
+#         #启动子线程
+#         t.start()
+# # 线程之间资源共享
+# li = []#定义全局变量
+#写入数据
+# def wdata():
+#     for i in range(5):
+#         li.append(i)
+#         time.sleep(1)
+#     print('写入的数据是：',li)
+# 读取数据
+# def rdata():
+#     print('读取的数据是：',li)
+# if __name__ == '__main__':
+#     #创建子线程
+#     wd = threading.Thread(target=wdata)
+#     rd = threading.Thread(target=rdata)
+#     #开启子线程
+#     wd.start()
+#     wd.join()
+#     rd.start()
+#     rd.join()
+# 2.5 资源竞争
+# a = 0
+# b = 10000000
+# def add():
+#     for i in range(b):
+#         global a
+#         a += 1
+#     print('第一次累加：',a)
+# def add1():
+#     for i in range(b):
+#         global a
+#         a += 1
+#     print('第二次累加：',a)
+# # add()
+# # add1()
+# if __name__ == '__main__':
+#     ad = threading.Thread(target=add)
+#     ad1 = threading.Thread(target=add1)
+#     ad.start()
+#     ad1.start()
+#线程同步
+# 主线程和创建的子线程之间各自执行完自己的代码直至结束
+# a = 0
+# b = 10000000
+# def add():
+#     for i in range(b):
+#         global a
+#         a += 1
+#     print('第一次累加：',a)
+# def add1():
+#     for i in range(b):
+#         global a
+#         a += 1
+#     print('第二次累加：',a)
+# # add()
+# # add1()
+# if __name__ == '__main__':
+#     ad = threading.Thread(target=add)
+#     ad1 = threading.Thread(target=add1)
+#     ad.start()
+#     ad.join()#等待ad子线程执行结束后，代码再继续往下运行，开始执行ad1子线程
+#     ad1.start()
+#     ad1.join()
+# 互斥锁
+# 对共享数据进行锁定，保证多个线程访问共享数据都不会出现数据错误问题：保证同一时刻只能有一个线程去操作
+# 导入模块
+from threading import Lock
+import threading
+# 1.创建全局互斥锁
+lock = Lock()
+a = 0
+b = 10000000
+def add():
+    #上锁
+    lock.acquire()
+    for i in range(b):
+        global a
+        a += 1
+    print('第一次累加：',a)
+    #释放锁
+    lock.release()
+def add1():
+    #上锁
+    lock.acquire()
+    for i in range(b):
+        global a
+        a += 1
+    print('第二次累加：',a)
+    #释放锁
+    lock.release()
+if __name__ == '__main__':
+    ad = threading.Thread(target=add)
+    ad1 = threading.Thread(target=add1)
+    ad.start()
+    ad1.start()
+# 总结
+# 1、互斥锁的作用：保证同一时刻只有一个线程去操作共享数据，保证共享数据不会出现错误问题
+# 2、上锁和释放锁必须成对出现，否则容易造成死锁现象
+# 死锁：一直等待对方释放锁的情景就是死锁
+# 会造成应用程序停止响应，不能再处理其他任务
+# 互斥锁的缺点：会影响代码的执行效率
