@@ -1,0 +1,93 @@
+# 进程池：
+# 主要的方法
+# p.apply_async(func[,args[kwds]])  非阻塞方式调用func   并行执行
+# p.close():关闭进程池，防止进一步操作(进程池不接收新的任务)
+# p.join() 阻塞
+# enumerate()不管任务是否完成，立即终止
+# 如果使用异步提交任务，等进程池内任务都处理完，需要用get()来收集结果
+# 使用场景
+# 利用py进行系统管理的时候，同时操作多个文件目录，或者远程控制多台主机，
+# 并行操作可以节约大量的时间
+# 阻塞：遇到I/O就发生阻塞，程序一旦遇到阻塞操作就停在原地，并且立刻释放的cpu资源
+# 非阻塞：没有I/O操作或者通过某种手段让程序即使遇到IO操作，也不回停在原地，而去执行其他操作，
+# 力求尽可能的占用cou资源
+# 同步和异步指的是提交任务的两种方式：
+# 同步调用：提交任务后，原地等待拿到任务的返回值才继续执行下一行代码
+# 异步调用：提交完任务后，就直接执行下一行代码
+# 异步：不用等待当前进程执行完毕，随时根据系统调度来进行进程切换
+# import os
+# import time
+# from multiprocessing import Pool
+# def learn(n):
+#     print('我们在学习py')
+#     time.sleep(2)
+#     return n**2
+# if __name__== '__main__':
+#     #创建进程池，最大进程数为3
+#     p = Pool(3)
+#     li = []
+#     for i in range(5):
+#         result = p.apply_async(learn,args=(i,))#learn函数名，i为learn的参数
+#         #把结果添加到li中
+#         li.append(result)
+#         #关闭进程池，关闭后p不再接收新的请求
+#     p.close()
+#     #等待p中所有子进程执行结束，必须放在close后面
+#     p.join()
+#     for j in li:
+#         #使用get来获取apply_async的结果
+#         print(j.get())
+#同步apply
+# import time
+# from multiprocessing import Pool
+# def learn(n):
+#     print('还在学习py')
+#     time.sleep(2)
+#     return n**2
+# if __name__ == '__main__':
+#     p = Pool(3)
+#     li = []
+#     for i in range(5):
+#         result = p.apply(learn,args=(i,))
+#         li.append(result)
+#     print(li)
+# Pool创建进程池需要使用multiprocessing,Manager()中的Queue
+# 队列实例化 q = Manager().Queue()
+import os
+from multiprocessing import Pool, Manager
+import time
+
+
+def rdata(q):
+    print(f'rdata启动{os.getpid()},父进程{os.getppid()}')
+    # 持续读取直到收到结束信号
+    while True:
+        if not q.empty():
+            data = q.get()
+            if data == 'END':  # 结束信号
+                break
+            print('取出数据:', data)
+        time.sleep(0.1)  # 避免CPU空转
+
+
+def wdata(q):
+    print(f'wdata启动{os.getpid()}，父进程{os.getppid()}')
+    for i in '123':
+        print('wdata写入：', i)
+        q.put(i)
+        time.sleep(0.5)
+    q.put('END')  # 发送结束信号
+
+
+if __name__ == '__main__':
+    print('开始了', os.getpid())
+    q = Manager().Queue()
+    p = Pool()
+
+    # 启动两个进程
+    p.apply_async(wdata, args=(q,))
+    p.apply_async(rdata, args=(q,))
+
+    p.close()
+    p.join()
+    print('结束了', os.getpid())
