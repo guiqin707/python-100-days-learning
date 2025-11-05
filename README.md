@@ -6,10 +6,10 @@
 
 | 项目 | 进度 |
 |------|------|
-| **总天数** | 45/100 天 |
+| **总天数** | 46/100 天 |
 | **开始日期** | 2025年9月 |
-| **代码文件数** | 18个 |
-| **提交次数** | 18 次 |
+| **代码文件数** | 19个 |
+| **提交次数** | 19 次 |
 
 ## 🗓️ 每日学习记录
 
@@ -32,11 +32,12 @@
 - **Day 41**: 可迭代、迭代器&自定义迭代器类
 - **Day 42**: 生成器、三者关系
 - **Day 43**: 多任务、简单多线程的实现和多线程的方法
--  **Day 44**: 多线程的特点与同步、互斥锁
--  **Day 45**: 进程的常用方法和属性
+- **Day 44**: 多线程的特点与同步、互斥锁
+- **Day 45**: 进程的常用方法和属性
+- **Day 46**: 进程的代码结构、之间的通信和进程操作队列
 
 ### 🔄 进行中
-- **Day 46**: 进程的代码结构和之间的通信
+- **Day 47**: 进程池，同步和异步，进程池通信的示例
 ### ⏳ 待学习
 - 面向对象编程
 - 网络请求
@@ -66,25 +67,36 @@ https://space.bilibili.com/3546597933714079?spm_id_from=333.788.upinfo.head.clic
 
 ## 💻 今日代码示例
 
-from multiprocessing import Process
-def eat(name):
-    print(f'{name}在干饭')
-def sleep(name):
-    print(f'{name}在睡觉')
-if __name__ == '__main__':
-    p1 = Process(target=eat,args=('guigui',))
-    p2 = Process(target=sleep,kwargs ={'name':'guigui'})
+from multiprocessing import Process,Queue
+import time
+li = ['guigui','zz','hh']
+def wdata(q1):
+    for i in range(5):
+        print(f'{i}已经被放入')
+        q1.put(i)
+        time.sleep(1)
+    print('写入的数据是：', li)
+def rdata(q2):
+    while True:
+        #判断是否为空,为空就退出循环
+        if q2.empty():
+            break
+        else:
+            print('取出数据：',q2.get())
+    print('读取的数据是：', li)#打印全局变量li的副本
+if __name__ =='__main__':#Python程序的入口点，确保代码只在直接运行该文件时执行
+    #创建队列对象
+    q = Queue()#创建共享队列 - 这是进程间通信的桥梁
+    p1 = Process(target=wdata,args=(q,))#创建进程p1，让它执行wdata函数，并把队列q作为参数传递给它
+    p2 = Process(target=rdata,args=(q,))
     p1.start()
-    p1.join()#主进程处于等待的状态，p1是运行状态
+    p1.join()#等待p1完成 - 主进程会在这里暂停，直到p1执行完毕
     p2.start()
-    p2.join()
-    print(p1.is_alive())
-    print(p2.is_alive())
 📈 每周总结
 第6周总结
 学习内容: 封装，父类和子类继承，魔法方法，文件操作
 
-完成情况: 1/7天
+完成情况: 2/7天
 
 收获: 学会了什么是迭代器，生成器和它们与可迭代对象之间的关系；线程
 最后更新: 2025年11月
