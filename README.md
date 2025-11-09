@@ -6,10 +6,10 @@
 
 | 项目 | 进度 |
 |------|------|
-| **总天数** | 49/100 天 |
+| **总天数** | 50/100 天 |
 | **开始日期** | 2025年9月 |
-| **代码文件数** | 22个 |
-| **提交次数** | 22 次 |
+| **代码文件数** | 23个 |
+| **提交次数** | 23 次 |
 
 ## 🗓️ 每日学习记录
 
@@ -38,9 +38,10 @@
 - **Day 47**: 进程池，同步和异步，进程池通信的示例
 - **Day 48**: 协程操作和greenlet使用
 - **Day 49**: gevent使用和总结
+- **Day 50**: 正则表达式、匹配单个字符
 
 ### 🔄 进行中
-- **Day 50**: 正则表达式、匹配单个字符
+- **Day 51**: 匹配多个字符、匹配开头结尾
 ### ⏳ 待学习
 - 面向对象编程
 - 网络请求
@@ -70,25 +71,21 @@ https://space.bilibili.com/3546597933714079?spm_id_from=333.788.upinfo.head.clic
 
 ## 💻 今日代码示例
 
-import gevent
-import time
-from gevent import monkey
-monkey.patch_all()#将用到的time.sleep()代码替换成gevent里面的gevent.time()
-# 注意：monkey.patch_all()必须要放在被打补丁者的前面
-def sing(name):
-    for i in range(3):
-        time.sleep(2)
-        print(f'{name}在唱歌，又在练习唱歌的{i}天')
-if __name__ == '__main__':
-    gevent.joinall([
-        gevent.spawn(sing,'guigui'),
-        gevent.spawn(sing,'zz')
-    ])
+# 1导入 re模块
+# 2使用match方法进行匹配操作
+# re.match()能匹配出以xxx开头的字符串，如果起始位置没有匹配成功，返回None
+# re.match(pattern,string,flags)
+# pattern:匹配的字符串正则表达式
+# string：要匹配的字符串
+# 3.如果上一步数据匹配成功，使用group()提取数据
+# res = re.match('gui','guigui在学习py')
+# print(res.group())
+# 注意：match是从开始位置匹配，匹配不到就没有，且匹配的是表达式整理
 📈 每周总结
 第6周总结
 学习内容: 封装，父类和子类继承，魔法方法，文件操作
 
-完成情况: 5/7天
+完成情况: 6/7天
 
 收获: 学会了什么是迭代器，生成器和它们与可迭代对象之间的关系；线程
 最后更新: 2025年11月
