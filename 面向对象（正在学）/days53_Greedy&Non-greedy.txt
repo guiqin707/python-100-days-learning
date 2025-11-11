@@ -1,0 +1,40 @@
+# 二、高级用法
+# 1.search()：扫描整个字符串并返回第一个成功匹配的对象，如果匹配失败，就返回None
+# res = re.search('th','python')
+# print(res.group())
+# 2.findall():从头到尾匹配，找到所有匹配成功的数据，返回一个列表
+# res = re.findall('\\d','python123')
+# print(res)
+# 总结
+# match():从头开始匹配，匹配成功返回match对象，通过group()提取，匹配失败就返回None，只匹配一次
+# search():从头到尾匹配，匹配成功返回第一个成功匹配的对象，通过group()进行提取，匹配失败返回None，只匹配一次
+# findall():从头到尾匹配，匹配成功返回一个列表，匹配所有匹配成功的数据，不需要通过group()进行提取，没有group
+# 3.sub(pattern,repl，string,count)
+# pattern 正则表达式（代表需要被替换的，也就是字符串里面的旧内容）
+# repl 新内容
+# string 字符串
+# count 指定替换次数
+# res = re.sub('gui','g','helloguigui',count=1)
+# print(res)
+# res = re.sub('\\d','1','这是这个月学习py的第20天',count=1)
+# print(res)
+# 4.split(pattern,string,maxsplit)
+# pattern  正则表达式
+# string  字符串
+# maxsplit  指定最大分割次数
+# res = re.split(',','hello,python,123,hhh',maxsplit=1)#没有设置次数就默认全部分割
+# print(res)
+# 三、贪婪与非贪婪
+# 1.贪婪匹配(默认)：在满足匹配时，匹配尽可能长的字符串
+# res = re.match('em*','emmmm....')
+# print(res.group())
+# 2.非贪婪匹配：在满足匹配时，匹配尽可能短的字符串，使用？表示非贪婪匹配
+# res = re.match('em+?','emmmm....')
+# print(res.group())
+# res = re.match('m{1,5}?','mmmmmm')
+# print(res.group())
+# 四、原生字符串
+# print(r'gui\gui')#r取消转义
+res = re.match(r'\\\\',r'\\game')
+print(res.group())
+# 正则表达式中，匹配字符串中的字符\(1)需要\\\\(4),加入原生字符串，\\(2)代表\(1)
