@@ -6,10 +6,10 @@
 
 | 项目 | 进度 |
 |------|------|
-| **总天数** | 53/100 天 |
+| **总天数** | 54/100 天 |
 | **开始日期** | 2025年9月 |
-| **代码文件数** | 26个 |
-| **提交次数** | 26 次 |
+| **代码文件数** | 27个 |
+| **提交次数** | 27 次 |
 
 ## 🗓️ 每日学习记录
 
@@ -42,9 +42,10 @@
 - **Day 51**: 匹配多个字符、匹配开头结尾
 - **Day 52**: 匹配分组
 - **Day 53**: 高级用法、贪婪与非贪婪和原生字符串
+- **Day 54**: os模块、sys模块
 
 ### 🔄 进行中
-- **Day 54**: os模块、sys模块
+- **Day 55**: time和loggin模块
 ### ⏳ 待学习
 - 面向对象编程
 - 网络请求
@@ -74,19 +75,19 @@ https://space.bilibili.com/3546597933714079?spm_id_from=333.788.upinfo.head.clic
 
 ## 💻 今日代码示例
 
-# 1.贪婪匹配(默认)：在满足匹配时，匹配尽可能长的字符串
-# res = re.match('em*','emmmm....')
-# print(res.group())
-# 2.非贪婪匹配：在满足匹配时，匹配尽可能短的字符串，使用？表示非贪婪匹配
-# res = re.match('em+?','emmmm....')
-# print(res.group())
-# res = re.match('m{1,5}?','mmmmmm')
-# print(res.group())
+# 1.sys.getdefaultencoding()                 #获取系统默认编码格式
+# print(sys.getdefaultencoding())
+# 2.sys.path                                 #获取环境变量的路径，跟解释器相关
+# print(sys.path)                            #以列表的形式返回，第一项为当前所在的工作目录
+# 3.sys.platform                             #获取操作系统平台名称
+# print(sys.platform)
+# 4.sys.version                              #获取py解释器的版本信息
+# print(sys.version)
 📈 每周总结
 第7周总结
 学习内容: 协程、线程、进程、greenlet、gevent和正则表达式
 
-完成情况: 2/7天
+完成情况: 3/7天
 
 收获: 明白协程、线程和进程的区别；怎么用greenlet和gevent实现协程切换，正则表达式的匹配
 最后更新: 2025年11月
