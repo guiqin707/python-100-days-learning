@@ -1,0 +1,55 @@
+# 三、time模块
+import time
+# 三种时间表示
+# 1.时间戳（timestamp）
+# 2.格式化的时间字符串（format time）
+# 3.时间元组（strut_time）
+# 1.time sleep
+# 2.time.time()        #获取当前时间戳：以秒计算，从1970年1月1日 00:00:00开始到现在的时间差
+# print(time.time())     #返回的是浮点型
+# 3.time.localtime()     #讲一个时间戳转换为当前失去的struct_time，九个元素
+# print(time.localtime())
+# 4.time.asctime()         #获取系统当前时间，把struct_time换成固定的字符串表达式
+# print(time.asctime())
+# t = time.localtime()
+# print(t.tm_hour)
+# print(t)
+# print(time.asctime(t))
+# 5.time.ctime()           #获取系统当前时间，把时间戳转换成固定的字符串表达式
+# t = time.time()
+# print(time.ctime(t))
+# 6.time.strftime(格式化字符串,struct_time)     #将struct_time转换成时间字符串
+# print(time.strftime('%Y-%m-%d %H:%M:%S', time.localtime()))
+# t = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())
+# print(type(t))
+# # 7.time.strptime(时间字符串，格式化字符串)     #将时间字符串转换为struct_time
+# print(time.strptime(t, '%Y-%m-%d %H:%M:%S'))
+# 四、logging模块
+import logging
+# 1.作用：用于记录日志信息
+# 2.日志的作用
+#    1.程序调试
+#    2.了解软件程序运行情况是否正常
+#    3.软件程序运行故障分析与问题定位
+# 3.级别排序（从高到低）
+# CRITICAL>ERROR>WARNING>INFO>DEBUG>NOTEST
+# logging.debug('我是debug')
+# logging.info('我是info')
+# logging.warning('我是waining')
+# logging.error('我是error')
+# logging.critical('我是critical')
+# logging默认的level就是warning，也就是说logging只会显示级别大于等于warning日志的信息
+# 4.logging.basicConfig()  #配置root logger的参数
+# 1.filename：指定日志文件的文件名，所有会显示的日志都会存放到这个文件中去
+# logging.basicConfig(filename='log.log')
+# 2.filemode:文件的打开方式，默认是a。追加模式
+# logging.basicConfig(filename='log.log',filemode='w')
+# 3.level:指定日志显示级别，默认是警告信息warning
+# logging.basicConfig(filename='log.log',filemode='w',level=logging.NOTSET)
+# 4.format:指定日志信息的输出格式
+logging.basicConfig(filename='log.log',filemode='w',level=logging.NOTSET,format='%(levelname)s:%(asctime)s\t%(message)s')
+logging.debug('debug')
+logging.info('info')
+logging.warning('waining')
+logging.error('error')
+logging.critical('critical')
