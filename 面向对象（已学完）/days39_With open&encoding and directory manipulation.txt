@@ -1,0 +1,36 @@
+# with open
+# 代码执行完，系统自动会调用f.close(),可以省略文件关闭步骤
+# with open('py801','w',encoding='utf-8') as f:
+#     f.write('今天也有在好好学习py')
+# print(f.closed)
+# with open('py801', encoding='utf-8') as f:
+#     print(f.read())
+# 案例：图片复制'rb'
+# """
+# 1.读取图片
+# 图片是一个二进制文件，想要写入必须要先拿到
+# 2.写入图片
+# """
+# 读取图片
+# with open(r'C:\Users\hgq\Desktop\新建文件夹\图片.png','rb')as file:
+#     img = file.read()
+#     print(img)
+# # 将读取到的内容写入到当前文件中
+# with open('D:\\Python\\PythonProject8\\图片.png','wb')as f:
+#     f.write(img)
+# 目录常用操作
+# 导入模块
+import os
+# 1.文件重命名 os.rename(旧名字,新名字)
+# os.rename('py801', 'zz.text')
+#2.删除文件 os.remove
+# os.remove('图片.png')
+# 3.创建文件夹 os.mkdir()
+# os.mkdir('guigui')
+# 4.删除文件夹 os.rmdir()
+# os.rmdir('guigui')
+# 5.获取当前目录 os.getcwd()
+# print(os.getcwd())
+# 6.获取目录列表 os.listdir()
+# print(os.listdir())#获取当前目录列表
+# print(os.listdir('../'))#获取上一级目录列表
