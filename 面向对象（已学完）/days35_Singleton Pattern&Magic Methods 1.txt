@@ -1,0 +1,71 @@
+# __init__()和__new__()
+# __init__():初始化对象
+# __new__():object基类提供的内置的静态方法
+# 作用：1、在内存中为对象分配空间；2、返回对象的引用，返回对象的引用 = 给你一个"地址"，让你能找到并使用这个对象
+# class Test:
+#     def __init__(self):
+#         print('这是__init__')
+#         # print(self)
+#     def __new__(cls, *args, **kwargs):#cls代表类本身
+#         print('这是__new__')
+#         print(cls)
+#         #对父类进行扩展，super().方法名
+#         # super() 的作用：
+#         # 找到当前类的父类
+#         # 调用父类的方法
+#         # 避免硬编码父类名称，更灵活
+#         # 因为 object.__new__ 才是真正分配内存创建对象的方法。如果我们不调用它，对象就永远不会被创建。
+#         res = super().__new__(cls)#方法重写，res里面保存的是实例对象的引用
+#         #__new__是静态方法，形参是cls，实参也要传cls
+#         #注意：重写__new__()一定要return suer().__new__(cls)
+#         #否则py解释器就得不到分配空间的对象引用，就不会调用__init__()
+#         return res
+# test = Test()
+# print(test)
+# super().__new__(cls) = 请父类真正创建对象
+# res = 接收到的新对象的"地址"
+# 内存地址 = Python告诉我们对象在哪里
+# 执行步骤
+# 一个对象的实例化过程：首先执行__new__(),如果没有，就默认调用object里面的__new__()
+# 返回一个人实例对象，然后再去调用__init__(),对对象进行初始化
+class Person:
+    def __new__(cls, *args, **kwargs):
+        print('这是new方法')
+        re = super().__new__(cls)
+        print(re)
+        return re#return 是告诉 Python解释器："房子建好了，这是房子的地址，请交给 __init__ 去装修"
+    def __init__(self,name):
+        self.name = name
+        print(f'名字是{self.name}')
+pe = Person('guigui')
+print(pe)
+pe2 = Person('zz')
+print(pe2)
+# 总结__new__()和__init__()
+# 1、__new__()是创建对象，__init()是初始化对象
+# 2、__new__()是返回对象引用,__init__()定义实例属性
+# 3__new__()是类级别,__init__()是实例级别的方法
+class Person:
+    def __new__(cls, *args, **kwargs):
+        print('这是new方法')
+        re = super().__new__(cls)  # 1. 请父类创建对象
+        print(re)  # 2. 显示对象地址（给人看）
+        return re  # 3. 返回对象地址（给程序用）
+
+    def __init__(self, name):
+        self.name = name  # 4. 初始化对象属性
+        print(f'名字是{self.name}')
+
+
+# 执行过程：
+pe = Person('guigui')
+print(pe)
+# 2、单例模式
+# 可以理解成一个特殊的类，这个类只存在一个对象
+# 优点：可以节省内存空间，减少不必要的资源浪费
+# 弊端：多线程访问的时候容易引发线程安全问题
+# 2.2方式
+# 1、通过@classmethod实现
+# 2、通过装饰器
+# 3、通过重写__new__()实现
+# 4、通过导入模块实现
