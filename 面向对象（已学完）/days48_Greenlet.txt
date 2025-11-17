@@ -1,0 +1,49 @@
+# 1协程：单线程下的开发，又称微线程
+# 注意：线程和进程的操作是由程序触发系统接口，最后的执行者是系统，协程的操作是程序员
+# 1.1简单实现协程
+# import time
+# def task1():
+#     while True:
+#         yield '哈哈哈'
+#         time.sleep(1)
+# def task2():
+#     while True:
+#         time.sleep(1)
+#         yield '嘿嘿嘿'
+# if __name__ == "__main__":
+#     t1 = task1()
+#     t2 = task2()
+#     # print(next(t1))
+#     # print(next(t2))
+#     # print(next(t1))
+#     # print(next(t2))
+#     while True:
+#         print(next(t1))
+#         print(next(t2))
+# 1.2应用场景
+# 1.如果一个线程里面IO操作比较多的时候，可以用协程
+# Input/Output
+# 常见IO操作：文件操作、网络请求
+# 2适合高并发处理
+# 2.greenlet：是一个由c语言实现的协程模块，通过设置switch()来实现任意函数之间的切换
+# 2.1安装第三方模块
+# 安装：pip install 模块名
+# 卸载：pip uninstall 模块名
+# 查看已安装的模块：pip list
+# 2.2注意：greenlet属于手动切换，当遇到IO操作，程序回阻塞，而不能进行自动切换
+# 2.3通过greenlet实现任务的切换
+# 导入greenlet模块
+from greenlet import greenlet
+def sing():
+    print('在唱歌')
+    g2.switch()
+    print('唱完歌了')
+def dance():
+    print('在跳舞')
+    print('跳完舞了')
+if __name__ == '__main__':
+    #创建协程对象 greenlet(任务名)
+    g1 = greenlet(sing)
+    g2 = greenlet(dance)
+    g1.switch()#切换到g1中运行
+    g2.switch()
