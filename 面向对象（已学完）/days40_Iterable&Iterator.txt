@@ -1,0 +1,38 @@
+# 1.可迭代对象Iterable
+# 遍历(迭代)：依次从对象中把一个个元素取出来的过程
+# 数据类型：str、list、tuple、dict、set等
+# 1.2可迭代对象的条件
+# 1、对象实现了__lter__()方法
+# 2、__iter__()方法返回了迭代器对象
+# 1.3for循环工作原理
+# 1、先通过__iter__()获取可迭代对象的迭代器
+# 2、对获取的迭代器不断的调用__next__()方法来获取下一个值并将其赋值给临时变量i
+# 1.4 isinstance():判断一个对象是否是可迭代对象或者是一个已知的数据类型
+# 导入模块
+# from collections.abc import Iterable
+# # instance(o,t) o:对象，t：类型，可以是直接或者间接类名、基本类型或者元组
+# print(isinstance(123,Iterable))
+# 迭代器Iterator
+# 是一个可以记住遍历位置的对象：在上次停留的位置继续去做一些事情
+# iter():获取可迭代对象的迭代器
+# next():一个个的去取元素，取完元素后会引发一个异常
+li = [1,2,3]
+# 1.创建迭代器对象
+li2 = iter(li)
+print(li2)
+print(dir(li))
+#获取下一条数据
+# print(next(li2))
+# print(next(li2))
+# print(next(li2))
+# 取完元素后再使用next()会引发异常StopIteration
+# print(next(li2))
+# 步骤：
+# 1.iter()调用对象的__iter__()方法的返回结果作为自己的返回值
+# 2.next()调用对象的__next__()，一个个取元素
+# 3.所有元素都取完了，__next__()将引发StopIteration
+# 方式2
+# li2 =li.__iter__()
+# print(li2)
+# print(li2.__next__())
+# print(dir(li2))
