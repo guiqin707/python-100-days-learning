@@ -1,0 +1,79 @@
+# 第五题
+# 定义一个至少有两个方法的类：一、getString：从控制台输入获取字符串;
+# 二printString：打印大写字母的字符串，并写出简单的函数来测试类方法
+# class  Text():
+#     def __init__(self):
+#         self.st = ''
+#     def getString(self):
+#         self.st = input('请输入字符串')
+#     def printString(self):
+#         print(self.st.upper())
+# if __name__ == '__main__':
+#     text = Text()
+#     text.getString()
+#     text.printString()
+# 第六题
+# 编写一个程序，根据给定的公式计算并打印值。其中，假设C=50，H=30，D是一个变量，
+# 它的值应该以逗号分隔的序列输入到程序中。例：程序的输入序列为（以逗号分隔）：100，150，180；则程序输出为18，22，24；
+# import math
+# def calculate_values(input_sequence):
+#     C = 50
+#     H = 30
+#     results = []
+#     # 分割输入序列
+#     D_values = input_sequence.split(',')
+#     # 对每个D值进行计算
+#     for D_str in D_values:
+#         D = int(D_str.strip())  # 转换为整数
+#         # 推测的公式计算
+#         Q = math.sqrt((2 * C * D) / H)
+#         results.append(str(round(Q)))  # 四舍五入并转换为字符串
+#     # 用逗号连接结果
+#     return ','.join(results)
+# # 测试
+# input_seq = "100,150,180"
+# output = calculate_values(input_seq)
+# print(output)  # 输出: 18,22,24
+# 第七题
+# 编写一个程序，X,Y作为输入，生成一个二维数组，数组的第i行和第j列的元素值应该是ixj。注意：i=0，1...，X-1；j=0，1，Y-1。
+# 假设，程序输入3，5；测程序输出为：[[0,0,0,0],[0,1,2,3],[0,2,4,6,8]];
+# def create_2d_array(x, y):
+#     result = []  # 创建空列表存储结果
+#
+#     for i in range(x):  # i从0到x-1
+#         row = []  # 创建新的一行
+#         for j in range(y):  # j从0到y-1
+#             row.append(i * j)  # 计算i×j并添加到当前行
+#         result.append(row)  # 将当前行添加到结果中
+#
+#     return result
+# # 获取输入
+# input_str = input("请输入X和Y（用逗号分隔）: ")
+# x, y = map(int, input_str.split(','))#map() 的作用是：对序列中的每个元素应用一个函数
+#
+# # 生成并打印二维数组
+# output = create_2d_array(x, y)
+# print(output)
+# # 法二列表表达式
+# def create_2d_array(x, y):
+#     return [[i * j for j in range(y)] for i in range(x)]
+#
+# # 获取输入
+# input_str = input("请输入X和Y（用逗号分隔）: ")
+# x, y = map(int, input_str.split(','))
+#
+# # 生成并打印二维数组
+# output = create_2d_array(x, y)
+# print(output)
+from mpl_toolkits.mplot3d.proj3d import world_transformation
+
+# 第八题
+# 编写一个程序，以逗号分隔的单词序列作为输入，按照字母顺序对每个单词进行排序，并通过逗号分隔的序列来打印单词。
+# 假设向程序输入：without,hello,bag,world;则输出为：bag,hello,without,world;
+# 一行代码完成所有操作
+words = input("请输入以逗号分隔的单词序列: ")
+print(','.join(sorted(words.split(','))))
+# split() 方法：将字符串按指定分隔符分割成列表
+# sort() 方法：对列表进行原地排序（修改原列表）
+# sorted() 函数：返回排序后的新列表，不修改原列表
+# join() 方法：将列表中的元素用指定字符串连接
