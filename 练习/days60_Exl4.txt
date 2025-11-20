@@ -1,0 +1,174 @@
+# # 用cars定义100
+# cars = 100
+# # 车的空间
+# space_in_a_car = 4.0
+# # 司机30
+# drivers = 30
+# # 容纳乘客90人
+# passengers = 90
+# # 该车辆驾驶者不能驾驶该车
+# cars_not_driven = cars - drivers
+# # 司机可驾驶车辆
+# cars_driven = drivers
+# # 在驾驶车辆*车的空间为车池的容量
+# carpool_capacity = cars_driven * space_in_a_car
+# # 计算平均每辆车可容纳的乘客量
+# average_passengers = passengers / cars_driven
+#
+# # 找到有空座的车
+# print("There are", cars, "cars available.")
+# # 找到只有司机座空缺的车
+# print("There are only", drivers, "drivers available.")
+# # 找到没有被驾驶，今天空车的车
+# print("There will be", cars_not_driven, "empty cars today.")
+# # 今天可以转运的乘客量
+# print("We can transport", carpool_capacity, "people today.")
+# # 今天到达车池的乘客量
+# print("We have", passengers, "to carpool today.")
+# # 需要按均分配乘客到每一辆车上
+# print( "We need to put about" ,average_passengers, "in each car.")
+# # 修改后
+# # 用cars定义100
+# cars = 100
+# # 定义可用汽车总数
+# space_in_a_car = 4.0
+# # 定义可用司机数量
+# drivers = 30
+# # 定义需要搭车的乘客总数
+# passengers = 90
+# # 计算无人驾驶的汽车数量 = 总车数 - 司机数
+# cars_not_driven = cars - drivers
+# # 计算有人驾驶的汽车数量 = 司机数量（每个司机开一辆车）
+# cars_driven = drivers
+# # 计算总运输能力 = 有人驾驶的车辆数 × 每辆车的座位数
+# carpool_capacity = cars_driven * space_in_a_car
+# # 计算平均每辆车的乘客数
+# average_passengers = passengers / cars_driven
+#
+# # 打印可用汽车数量
+# print("There are", cars, "cars available.")
+# # 打印可用司机数量
+# print("There are only", drivers, "drivers available.")
+# # 打印空置汽车数量
+# print("There will be", cars_not_driven, "empty cars today.")
+# # 打印总运输容量
+# print("We can transport", carpool_capacity, "people today.")
+# # 打印乘客总数
+# print("We have", passengers, "to carpool today.")
+# # 打印平均每辆车的乘客数
+# print("We need to put about", average_passengers, "in each car.")
+# 主要问题总结：
+# 部分注释过于复杂：有些注释可以更简洁直接
+# 少数注释不准确：有些注释与代码实际功能不完全匹配
+# 术语不一致：比如"车池"不是标准术语
+# 改进建议：
+# 尽量使用简单直接的描述
+# 确保注释准确反映代码功能
+# 使用通用的编程术语
+# 更多的变量和打印(旧式格式化字符串)
+# my_name = 'guigui'
+# my_age = 18 # 学的bingbing
+# my_height = 188 # cm
+# my_wight = 60 # kg
+# my_eyes = 'black'
+# my_teeth = 'white'
+# my_hair = 'black'
+#
+# print("let's talk about %s." % my_name)
+# print("She's %d cm tall." % my_height)
+# print("She's %d kg heavy." % my_wight)
+# print("Actually that's not too heavy")
+# print("She's got %s eveys and %s hair."%(my_eyes,my_hair))
+# print("Her teeth are usually %s depending on the tea" % my_teeth)
+#
+# # this line is tricky, try to get it exactly right
+# print("if i add %d, %d, and %d i get %d."%(my_age,my_height,my_wight,my_age + my_height + my_wight))
+# 附加题
+name = 'guigui'
+age = 18 # 学的bingbing
+height = 74 # inches
+wight = 170 # lbs
+eyes = 'black'
+teeth = 'white'
+hair = 'black'
+
+print(f"let's talk about {name}." )
+print(f"She's {height} inches tall.")
+print(f"She's {wight} pounds heavy." )
+print("Actually that's not too heavy")
+print(f"She's got {eyes} eveys and {hair} hair.")
+print(f"Her teeth are usually {teeth} depending on the tea" )
+
+# this line is tricky, try to get it exactly right
+print(f"if i add {age}, {height}, and {wight} i get {age + height + wight}.")
+# 现代常用
+# 1. f-string (Python 3.6+ 推荐)
+name = "Alice"
+age = 25
+print(f"My name is {name} and I am {age} years old.")
+# 2. str.format() 方法
+print("My name is {} and I am {} years old.".format(name, age))
+# 虽然 % 格式化功能完整，但：
+# f-string 更直观、更安全、性能更好
+# str.format() 比 % 更灵活
+# 只有在维护旧代码时才需要深入了解 % 格式化，所以只列出
+# 字符串
+print("%s" % "hello")        # hello
+
+# 十进制整数
+print("%d" % 42)             # 42
+
+# 浮点数
+print("%f" % 3.14159)        # 3.141590
+
+# 八进制
+print("%o" % 15)             # 17
+
+# 十六进制（小写）
+print("%x" % 255)            # ff
+
+# 十六进制（大写）
+print("%X" % 255)            # FF
+
+# 字符（ASCII）
+print("%c" % 65)             # A
+
+# 科学计数法（小写 e）
+print("%e" % 1000)           # 1.000000e+03
+
+# 科学计数法（大写 E）
+print("%E" % 1000)           # 1.000000E+03
+# 最小宽度
+print("|%10s|" % "test")     # |      test|
+
+# 左对齐
+print("|%-10s|" % "test")    # |test      |
+
+# 填充0（数字）
+print("|%05d|" % 42)         # |00042|
+
+# 浮点数精度
+print("%.2f" % 3.14159)      # 3.14
+
+# 字符串最大长度
+print("%.3s" % "hello")      # hel
+
+# 组合：宽度和精度
+print("%8.2f" % 3.14159)     #     3.14
+
+# 显示正负号
+print("%+d" % 42)            # +42
+print("%+d" % -42)           # -42
+
+# 空格代替正号
+print("% d" % 42)            #  42
+print("% d" % -42)           # -42
+
+# 八进制和十六进制前缀
+print("%#o" % 15)            # 0o17
+print("%#x" % 255)           # 0xff
+print("%#X" % 255)           # 0XFF
+# 使用字典传递参数
+data = {"name": "Alice", "age": 25, "score": 95.5}
+print("Name: %(name)s, Age: %(age)d, Score: %(score).1f" % data)
+# Name: Alice, Age: 25, Score: 95.5
