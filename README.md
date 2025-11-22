@@ -6,10 +6,10 @@
 
 | 项目 | 进度 |
 |------|------|
-| **总天数** | 60/100 天 |
+| **总天数** | 61/100 天 |
 | **开始日期** | 2025年9月 |
-| **代码文件数** | 33个 |
-| **提交次数** | 33 次 |
+| **代码文件数** | 34个 |
+| **提交次数** | 34 次 |
 
 ## 🗓️ 每日学习记录
 
@@ -49,9 +49,10 @@
 - **Day 58**: 练习2
 - **Day 59**: 练习3
 - **Day 60**: 练习4
+- **Day 61**: 练习5
 
 ### 🔄 进行中
-- **Day 61**: 练习5
+- **Day 62**: 练习6
 ### ⏳ 待学习
 - 面向对象编程
 - 网络请求
@@ -81,78 +82,47 @@ https://space.bilibili.com/3546597933714079?spm_id_from=333.788.upinfo.head.clic
 
 ## 💻 今日代码示例
 
-# # 用cars定义100
-# cars = 100
-# # 车的空间
-# space_in_a_car = 4.0
-# # 司机30
-# drivers = 30
-# # 容纳乘客90人
-# passengers = 90
-# # 该车辆驾驶者不能驾驶该车
-# cars_not_driven = cars - drivers
-# # 司机可驾驶车辆
-# cars_driven = drivers
-# # 在驾驶车辆*车的空间为车池的容量
-# carpool_capacity = cars_driven * space_in_a_car
-# # 计算平均每辆车可容纳的乘客量
-# average_passengers = passengers / cars_driven
+# 定义一个数字变量
+# data = 10
+# # 创建一个包含data变量的格式化字符串
+# x = f"there are {data} types of people."
+# # 定义binary
+# binary = "binary"
+# # 定义do_not
+# do_not = "don't"
+# # 创建一个包含binary和do_not变量的格式化字符串
+# y = f"Those who know {binary} and those who {do_not}. "
 #
-# # 找到有空座的车
-# print("There are", cars, "cars available.")
-# # 找到只有司机座空缺的车
-# print("There are only", drivers, "drivers available.")
-# # 找到没有被驾驶，今天空车的车
-# print("There will be", cars_not_driven, "empty cars today.")
-# # 今天可以转运的乘客量
-# print("We can transport", carpool_capacity, "people today.")
-# # 今天到达车池的乘客量
-# print("We have", passengers, "to carpool today.")
-# # 需要按均分配乘客到每一辆车上
-# print( "We need to put about" ,average_passengers, "in each car.")
-# # 修改后
-# # 用cars定义100
-# cars = 100
-# # 定义可用汽车总数
-# space_in_a_car = 4.0
-# # 定义可用司机数量
-# drivers = 30
-# # 定义需要搭车的乘客总数
-# passengers = 90
-# # 计算无人驾驶的汽车数量 = 总车数 - 司机数
-# cars_not_driven = cars - drivers
-# # 计算有人驾驶的汽车数量 = 司机数量（每个司机开一辆车）
-# cars_driven = drivers
-# # 计算总运输能力 = 有人驾驶的车辆数 × 每辆车的座位数
-# carpool_capacity = cars_driven * space_in_a_car
-# # 计算平均每辆车的乘客数
-# average_passengers = passengers / cars_driven
+# # 打印字符串x
+# print(x)
+# # 打印字符串y
+# print(y)
 #
-# # 打印可用汽车数量
-# print("There are", cars, "cars available.")
-# # 打印可用司机数量
-# print("There are only", drivers, "drivers available.")
-# # 打印空置汽车数量
-# print("There will be", cars_not_driven, "empty cars today.")
-# # 打印总运输容量
-# print("We can transport", carpool_capacity, "people today.")
-# # 打印乘客总数
-# print("We have", passengers, "to carpool today.")
-# # 打印平均每辆车的乘客数
-# print("We need to put about", average_passengers, "in each car.")
-# 主要问题总结：
-# 部分注释过于复杂：有些注释可以更简洁直接
-# 少数注释不准确：有些注释与代码实际功能不完全匹配
-# 术语不一致：比如"车池"不是标准术语
-# 改进建议：
-# 尽量使用简单直接的描述
-# 确保注释准确反映代码功能
-# 使用通用的编程术语
+# # 打印包含x的格式化字符串
+# print(f"i said:{x}")
+# # 打印包含y的格式化字符串
+# print(f"I also said:{y}")
+#
+# # 定义布尔变量False
+# hilarious = False
+# # 创建一个包含hilarious变量的格式化字符串
+# joke_evaluation = "Isn't that joke so close all?! {}"
+#
+# # 打印字符串和变量（这里有错误）
+# print(joke_evaluation.format(hilarious))
+#
+# # 定义字符串变量
+# w = "this is the left side of ..."
+# # 定义另一个字符串变量
+# e = "a string with a right side."
+#
+# # 把两个字符串拼接起来
+# print(w + e)
 📈 每周总结
 第8周总结
 学习内容: py常用模块
 
-完成情况: 4/7天
+完成情况: 5/7天
 
 收获: 知道了os、time、sys、random模块
 最后更新: 2025年11月
