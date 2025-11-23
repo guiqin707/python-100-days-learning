@@ -1,0 +1,36 @@
+# 3数字与数学
+# 数鸡
+print('i will now count my chicken')
+
+# 数母鸡，后面算式不理解
+print('hens', 20 + 30 / 6)
+# 数公鸡，计算100 - (25 × 3) % 4 = 100 - 75 % 4 = 100 - 3 = 97
+# # % 是取余运算符，75 ÷ 4 = 18余3，所以75 % 4 = 3
+print('Roosters', 100 - 25 * 3 % 4)
+# 数鸡蛋
+print('now i will count the eggs:')
+# 计算：3 + 2 + 1 - 5 + (4 % 2) - (1 / 4) + 6
+# # = 3 + 2 + 1 - 5 + 0 - 0.25 + 6
+# # = 1 - 0.25 + 6 = 6.75
+print(3 + 2 + 1 - 5 + 4 % 2 - 1 / 4 + 6)
+# 判断3 +2 是否小于 5- 7
+print('Is it true that 3 + 2 < 5 - 7?')
+#开始判断，5 < -2 ,结果为False
+print(3 + 2 < 5 - 7)
+
+# 计算3 + 2 的值
+print('What is 3 + 2?', 3 + 2)
+# 计算5 - 7 的值
+print('What is 5 - 7?', 5 - 7)
+#找到错误原因
+print("on, that's why it's False.")
+# 继续询问更多比较问题
+print("How about some more.")
+
+# 判断谁大谁小，对就返回True，错就返回False
+print("Is it greater?" , 5 > -2)
+print(" Is it greater or equal?", 5 >= -2)
+print("Is it less or equal?", 5 <= -2)
+# 运算符优先级：括号 > 乘除/取余 > 加减
+# % 取余运算：a % b 返回 a ÷ b 的余数
+# 比较运算：总是返回 True 或 False
