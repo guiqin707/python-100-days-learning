@@ -1,0 +1,41 @@
+# print(f"{1} {2} {3} {4}")   #打印字符串
+# print(f"{'one'} {'two'} {'three'} {'four'}")  #打印字符串
+# print(f"{True} {False} {False} {True}")    # 打印布尔值（用空格分隔）
+#
+# # 对于重复使用相同格式的情况，可以定义函数
+# def format_values(a,b,c,d):    #定义一个带有abcd参数的format_values函数
+#     return f"{a} {b} {c} {d}"   #返回参数
+# print(format_values("one","two","three","four"))  #调用函数并传参
+# print(format_values(True,False,False,True))       #调用函数并传参
+# print(format_values(
+#     "I had this thing.",
+#     "That you could type up right.",
+#     "But it didn't sing.",
+#     "So I said goodnight."
+# ))    #调用函数并传参,不要忘记逗号
+
+# 第一组打印问题：
+# 缺少空格分隔符，输出会是：1234, onetwothreefour, TrueFalseFalseTrue
+# 建议在f-string中添加空格：f"{1} {2} {3} {4}"
+# 拼写错误：
+# 'tow' 应该是 'two'
+# 格式一致性：
+# 函数内使用连字符 -，但前面的打印没有分隔符，建议保持一致性
+
+# Here's some new strange stuff, remember type it exactly.
+days = "Mon Tue Wed Thu Fri Sat Sun"
+months = "Jan\nFeb\nMar\nApr\nMay\nJun\nJul\nAug"
+
+print("Here are the days:",days)
+print("Here are the months:",months)
+
+print("""
+There's something going on here.
+with the three double-quotes.
+We'll be able to type as  much as we like.
+Even 4 lines if we want, or 5, or 6.
+""")
+# 拼写错误：
+# "Yue" 应该是 "Tue" (Tuesday)
+# "S at" 应该是 "Sat" (Saturday)
+# \n - 换行符，让文本在新的一行显示
