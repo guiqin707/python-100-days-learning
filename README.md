@@ -6,10 +6,10 @@
 
 | 项目 | 进度 |
 |------|------|
-| **总天数** | 63/100 天 |
+| **总天数** | 64/100 天 |
 | **开始日期** | 2025年9月 |
-| **代码文件数** | 36个 |
-| **提交次数** | 36 次 |
+| **代码文件数** | 37个 |
+| **提交次数** | 37 次 |
 
 ## 🗓️ 每日学习记录
 
@@ -52,9 +52,10 @@
 - **Day 61**: 练习5
 - **Day 62**: 练习6
 - **Day 63**: 练习7
+- **Day 64**: 练习8
 
 ### 🔄 进行中
-- **Day 64**: 练习8
+- **Day 65**: 练习9
 ### ⏳ 待学习
 - 面向对象编程
 - 网络请求
@@ -84,22 +85,35 @@ https://space.bilibili.com/3546597933714079?spm_id_from=333.788.upinfo.head.clic
 
 ## 💻 今日代码示例
 
-# def get_user_info():
-#     age = input("How old are you?")
-#     height = input("How tall are you?")
-#     weight = input("how much do you weight?")
+# from sys import argv
 #
-#     print(f"\nSo, you're {age} years old, {height} tall and {weight} heavy.")
+# script, user_name , user_mood= argv
+# prompt = '🤔 请回答: '
 #
-# if __name__ == '__main__':
-#     get_user_info()
-# help(input)
-# help(open)
+# print(f"Hi {user_name},I'm the {script}script.")
+# print(f"检测到你的心情是: {user_mood}")
+# print("I'd like to ask you a few questions.")
+# print(f"Do you like me {user_name}?")
+# likes = input(prompt)
+#
+# print(f"Where do you live {user_name}?")
+# lives = input(prompt)
+#
+# print("What kind of computer do you have?")
+# computer = input(prompt)
+#
+# print(f"""
+# Alright, so you said '{likes}' about liking me.
+# You live in {lives}. Not sure where that is.
+# And you have a {computer} computer. Nice
+# 另外，你今天感觉 {user_mood}。
+# 希望你的心情能变得更好!
+# """)
 📈 每周总结
 第8周总结
 学习内容:做笨方法学习python的习题，巩固基础
 
-完成情况: 7/7天
+完成情况: 1/7天
 
 收获: 知道了os、time、sys、random模块
 最后更新: 2025年11月
