@@ -1,0 +1,90 @@
+# from sys import argv   # 从 sys 模块导入 argv
+# # argv 是一个列表，包含命令行参数
+# # 例如：python script.py arg1 arg2 arg3
+#
+# script, first, second, third = argv  # 解包 argv
+#
+# print("The script is called:", script)     # 脚本名称
+# print("Your first variable is:",first)    # 第一个参数
+# print("Your second variable is:",second)   # 第二个参数
+# print("Your third variable is:",third)    # 第三个参数
+
+# from sys import argv
+#
+# #从命令行参数获取基本信息
+# if len(argv) >= 3:
+#     script, username, age = argv
+# else:
+#     print("请提供用户名和年龄作为参考！")
+#     exit()
+# print(f"欢迎{username}!")
+#
+# # 使用input获取更多信息
+# print ("\n让我们完善你的个人资料：")
+# favorite_color = input("你最喜欢的颜色是什么？")
+# favorite_food = input("你最喜欢的食物是什么？")
+# dream_job = input("你梦想的工作是什么？")
+#
+# print("\n=== 完整的个人资料 ===")
+# print(f"用户名：{username}")
+# print(f"年龄：{age}")
+# print(f"最喜欢的颜色：{favorite_color}")
+# print(f"最喜欢的食物:{favorite_food}")
+# print(f"梦想的工作：{dream_job}")
+
+# 创建一些解包例子
+# data = ['python','java','c++','javascript']
+# lang1, lang2, *other_langs = data
+# print(f"主要语言：{lang1},{lang2}")
+# print(f"其他语言：{other_langs}")
+#
+# # 字典解包
+# student = {"name": "小明", "age": 18, "grade": "A"}
+# key1 ,key2, key3 = student
+# print(f"字典键：{key1}, {key2}, {key3}")
+
+# 1. 使用 argv（命令行参数）
+# 需要在运行时就提供所有数据
+# 数据作为程序启动的一部分
+# 适合：配置参数、文件名、一次性设置
+# 必须从终端/命令行运行，或者在PyCharm的运行配置中添加参数
+# 这就是解包操作：
+# argv 是一个列表，比如：["script.py", "张三", "25"]
+# script, username, age = argv 把列表中的三个元素分别赋值给三个变量：
+# script = "script.py"
+# username = "张三"
+# age = "25"
+
+# from sys import argv  # ← 这里使用了 sys 包中的 argv 模块/对象
+# sys 是 Python 的一个标准库包
+#
+# argv 是 sys 包中的一个对象（用于获取命令行参数）
+#
+# from sys import argv 意思是从 sys 包中导入 argv 对象
+# 解包：script, username, age = argv - 把列表元素"拆开"分给变量
+# 包：sys - 一个包含相关功能的代码集合
+
+# from sys import argv
+#
+# script, user_name , user_mood= argv
+# prompt = '🤔 请回答: '
+#
+# print(f"Hi {user_name},I'm the {script}script.")
+# print(f"检测到你的心情是: {user_mood}")
+# print("I'd like to ask you a few questions.")
+# print(f"Do you like me {user_name}?")
+# likes = input(prompt)
+#
+# print(f"Where do you live {user_name}?")
+# lives = input(prompt)
+#
+# print("What kind of computer do you have?")
+# computer = input(prompt)
+#
+# print(f"""
+# Alright, so you said '{likes}' about liking me.
+# You live in {lives}. Not sure where that is.
+# And you have a {computer} computer. Nice
+# 另外，你今天感觉 {user_mood}。
+# 希望你的心情能变得更好!
+# """)
