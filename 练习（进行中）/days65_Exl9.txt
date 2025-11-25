@@ -1,0 +1,47 @@
+# with open('ex_sample.txt','w') as f:                   #打开文件并写入后关闭，添加编码参数
+#     f.write("This is stuff I typed into a file.\n")    #写入字符串并换行
+#     f.write("It is really cool stuff.\n")              #写入字符串并换行
+#     f.write("Lots and lots of fun to have in here.\n")  #写入字符串并换行
+# print("ex_sample.txt 文件已经被创建！")                    #打印文件创建成功
+#
+# from sys import argv     #从sys模块导入argv函数*
+# script, filename = argv   # 解包argv，获取脚本名和文件名参数*
+#
+# print(f"Here's your file {filename}")  #打印文件名
+# with open(filename, 'r', encoding='utf-8') as txt:     # 以只读模式打开文件，读取完成后自动关闭*
+#     content = txt.read()       # 读取文件全部内容并存储在content变量中*
+#     print("文件内容：")         #打印提示信息*
+#     print(content)           #打印文件内容
+#
+# print("\n请再次输入文件名：")     # 提示用户再次输入文件名*
+# file_again = input(">")       # 获取用户输入的文件名*
+#
+# with open(file_again, 'r', encoding='utf-8')as txt_again:   # 再次以只读模式打开文件*
+#     content_again = txt_again.read()      # 读取文件内容到变量*
+#     print("再次读取的内容：")               #打印提示信息*
+#     print(content_again)        #打印文件内容
+
+# 1. 函数(Function) vs 方法(Method)的区别：
+# 函数(Function)：*
+# 独立的代码块，可以直接调用
+# 例子：open(), input(), print()
+# 方法(Method)：*
+# 属于某个对象的函数，需要通过对象调用
+# 例子：txt.read(), txt.close(), f.write()
+
+# 不使用 argv，只用 input() 获取文件名
+# filename = input("请输入要读取的文件名: ")
+#
+# print(f"正在打开文件: {filename}")
+# with open(filename, 'r', encoding='utf-8') as txt:
+#     content = txt.read()
+#     print("文件内容：")
+#     print(content)
+#
+# print("\n请再次输入文件名：")
+# file_again = input("> ")
+#
+# with open(file_again, 'r', encoding='utf-8') as txt_again:
+#     content_again = txt_again.read()
+#     print("再次读取的内容：")
+#     print(content_again)
