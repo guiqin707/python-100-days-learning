@@ -1,0 +1,83 @@
+# from sys import argv
+#
+# script, filename = argv
+#
+# print(f"我们将要清空文件{filename}。")
+# print("如果你不想这样做，请按 CTRL- C(^C)")
+# print("如果你想继续，请按回车键")
+#
+# input("?")
+#
+# print("正在打开文件...")
+# # 使用with语句自动处理文件关闭
+# with open(filename,'w') as target:
+#     print("清空文件内容。再见！")
+#     target.truncate()
+#
+#     print("我现在需要你输入三行字。")
+#
+#     line1 = input("第一行：")
+#     line2 = input("第二行：")
+#     line3 = input("第三行")
+#
+#     print("我将把这些内容写入文件。")
+#
+#     # 更简洁的写入方式
+#     target.write(f"{line1}\n{line2}\n{line3}\n")
+#
+# print(f"文件{filename}已保存！")
+#
+# from sys import argv
+#
+# script, filename = argv
+#
+# with open(filename, 'r')as f:
+#     content = f.read()
+#     print("文件内容：")
+#     print(content)
+
+# from sys import argv
+#
+# # 获取脚本名和文件名参数
+# script, filename = argv
+#
+# # 打开文件进行读取
+# print(f"正在打开文件 {filename}...")
+# with open(filename, 'r') as target:
+#     # 读取文件全部内容
+#     content = target.read()
+#
+# print(f"文件 {filename} 的内容是:")
+# print("=" * 40)
+# print(content)
+# print("=" * 40)
+
+#
+# with open('ex_sample2.txt', 'w')as f:
+#     f.write("好困\n")
+#     f.write("真的好想睡\n")
+#     print("文件已创建成功！")
+
+# from sys import argv
+# from os.path import exists  # 用于检查文件是否存在
+#
+# script, from_file, to_file = argv
+#
+# print(f"正在从{from_file}复制到{to_file}")
+#
+# with open(from_file) as in_file, open(to_file, 'w') as out_file:
+#
+#     indata = in_file.read()
+#
+#     print(f"输入文件的大小是{len(indata)}字节")
+#     print(f"输出文件是否已存在？{exists(to_file)}")
+#     print("准备就绪，按回车键继续，按CTRL-C 取消")
+#     input()
+#
+#     out_file.write(indata)
+#
+# print("好的，全部完成。")
+#
+# with open('ex_sample2.txt','r')as txt:
+#     content = txt.read()
+#     print(content)
