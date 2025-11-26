@@ -6,10 +6,10 @@
 
 | 项目 | 进度 |
 |------|------|
-| **总天数** | 65/100 天 |
+| **总天数** | 66/100 天 |
 | **开始日期** | 2025年9月 |
-| **代码文件数** | 38个 |
-| **提交次数** | 38 次 |
+| **代码文件数** | 39个 |
+| **提交次数** | 39 次 |
 
 ## 🗓️ 每日学习记录
 
@@ -54,9 +54,10 @@
 - **Day 63**: 练习7
 - **Day 64**: 练习8
 - **Day 65**: 练习9
+- **Day 66**: 练习10
 
 ### 🔄 进行中
-- **Day 66**: 练习10
+- **Day 67**: 练习11
 ### ⏳ 待学习
 - 面向对象编程
 - 网络请求
@@ -86,41 +87,34 @@ https://space.bilibili.com/3546597933714079?spm_id_from=333.788.upinfo.head.clic
 
 ## 💻 今日代码示例
 
-# with open('ex_sample.txt','w') as f:                   #打开文件并写入后关闭，添加编码参数
-#     f.write("This is stuff I typed into a file.\n")    #写入字符串并换行
-#     f.write("It is really cool stuff.\n")              #写入字符串并换行
-#     f.write("Lots and lots of fun to have in here.\n")  #写入字符串并换行
-# print("ex_sample.txt 文件已经被创建！")                    #打印文件创建成功
+# from sys import argv
+# from os.path import exists  # 用于检查文件是否存在
 #
-# from sys import argv     #从sys模块导入argv函数*
-# script, filename = argv   # 解包argv，获取脚本名和文件名参数*
+# script, from_file, to_file = argv
 #
-# print(f"Here's your file {filename}")  #打印文件名
-# with open(filename, 'r', encoding='utf-8') as txt:     # 以只读模式打开文件，读取完成后自动关闭*
-#     content = txt.read()       # 读取文件全部内容并存储在content变量中*
-#     print("文件内容：")         #打印提示信息*
-#     print(content)           #打印文件内容
+# print(f"正在从{from_file}复制到{to_file}")
 #
-# print("\n请再次输入文件名：")     # 提示用户再次输入文件名*
-# file_again = input(">")       # 获取用户输入的文件名*
+# with open(from_file) as in_file, open(to_file, 'w') as out_file:
 #
-# with open(file_again, 'r', encoding='utf-8')as txt_again:   # 再次以只读模式打开文件*
-#     content_again = txt_again.read()      # 读取文件内容到变量*
-#     print("再次读取的内容：")               #打印提示信息*
-#     print(content_again)        #打印文件内容
-
-# 1. 函数(Function) vs 方法(Method)的区别：
-# 函数(Function)：*
-# 独立的代码块，可以直接调用
-# 例子：open(), input(), print()
-# 方法(Method)：*
-# 属于某个对象的函数，需要通过对象调用
-# 例子：txt.read(), txt.close(), f.write()
+#     indata = in_file.read()
+#
+#     print(f"输入文件的大小是{len(indata)}字节")
+#     print(f"输出文件是否已存在？{exists(to_file)}")
+#     print("准备就绪，按回车键继续，按CTRL-C 取消")
+#     input()
+#
+#     out_file.write(indata)
+#
+# print("好的，全部完成。")
+#
+# with open('ex_sample2.txt','r')as txt:
+#     content = txt.read()
+#     print(content)
 📈 每周总结
 第8周总结
 学习内容:做笨方法学习python的习题，巩固基础
 
-完成情况: 2/7天
+完成情况: 3/7天
 
 收获: 知道了os、time、sys、random模块
 最后更新: 2025年11月
