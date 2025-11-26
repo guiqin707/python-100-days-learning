@@ -6,10 +6,10 @@
 
 | 项目 | 进度 |
 |------|------|
-| **总天数** | 64/100 天 |
+| **总天数** | 65/100 天 |
 | **开始日期** | 2025年9月 |
-| **代码文件数** | 37个 |
-| **提交次数** | 37 次 |
+| **代码文件数** | 38个 |
+| **提交次数** | 38 次 |
 
 ## 🗓️ 每日学习记录
 
@@ -53,9 +53,10 @@
 - **Day 62**: 练习6
 - **Day 63**: 练习7
 - **Day 64**: 练习8
+- **Day 65**: 练习9
 
 ### 🔄 进行中
-- **Day 65**: 练习9
+- **Day 66**: 练习10
 ### ⏳ 待学习
 - 面向对象编程
 - 网络请求
@@ -85,35 +86,41 @@ https://space.bilibili.com/3546597933714079?spm_id_from=333.788.upinfo.head.clic
 
 ## 💻 今日代码示例
 
-# from sys import argv
+# with open('ex_sample.txt','w') as f:                   #打开文件并写入后关闭，添加编码参数
+#     f.write("This is stuff I typed into a file.\n")    #写入字符串并换行
+#     f.write("It is really cool stuff.\n")              #写入字符串并换行
+#     f.write("Lots and lots of fun to have in here.\n")  #写入字符串并换行
+# print("ex_sample.txt 文件已经被创建！")                    #打印文件创建成功
 #
-# script, user_name , user_mood= argv
-# prompt = '🤔 请回答: '
+# from sys import argv     #从sys模块导入argv函数*
+# script, filename = argv   # 解包argv，获取脚本名和文件名参数*
 #
-# print(f"Hi {user_name},I'm the {script}script.")
-# print(f"检测到你的心情是: {user_mood}")
-# print("I'd like to ask you a few questions.")
-# print(f"Do you like me {user_name}?")
-# likes = input(prompt)
+# print(f"Here's your file {filename}")  #打印文件名
+# with open(filename, 'r', encoding='utf-8') as txt:     # 以只读模式打开文件，读取完成后自动关闭*
+#     content = txt.read()       # 读取文件全部内容并存储在content变量中*
+#     print("文件内容：")         #打印提示信息*
+#     print(content)           #打印文件内容
 #
-# print(f"Where do you live {user_name}?")
-# lives = input(prompt)
+# print("\n请再次输入文件名：")     # 提示用户再次输入文件名*
+# file_again = input(">")       # 获取用户输入的文件名*
 #
-# print("What kind of computer do you have?")
-# computer = input(prompt)
-#
-# print(f"""
-# Alright, so you said '{likes}' about liking me.
-# You live in {lives}. Not sure where that is.
-# And you have a {computer} computer. Nice
-# 另外，你今天感觉 {user_mood}。
-# 希望你的心情能变得更好!
-# """)
+# with open(file_again, 'r', encoding='utf-8')as txt_again:   # 再次以只读模式打开文件*
+#     content_again = txt_again.read()      # 读取文件内容到变量*
+#     print("再次读取的内容：")               #打印提示信息*
+#     print(content_again)        #打印文件内容
+
+# 1. 函数(Function) vs 方法(Method)的区别：
+# 函数(Function)：*
+# 独立的代码块，可以直接调用
+# 例子：open(), input(), print()
+# 方法(Method)：*
+# 属于某个对象的函数，需要通过对象调用
+# 例子：txt.read(), txt.close(), f.write()
 📈 每周总结
 第8周总结
 学习内容:做笨方法学习python的习题，巩固基础
 
-完成情况: 1/7天
+完成情况: 2/7天
 
 收获: 知道了os、time、sys、random模块
 最后更新: 2025年11月
