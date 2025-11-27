@@ -6,10 +6,10 @@
 
 | 项目 | 进度 |
 |------|------|
-| **总天数** | 66/100 天 |
+| **总天数** | 67/100 天 |
 | **开始日期** | 2025年9月 |
-| **代码文件数** | 39个 |
-| **提交次数** | 39 次 |
+| **代码文件数** | 40个 |
+| **提交次数** | 40 次 |
 
 ## 🗓️ 每日学习记录
 
@@ -55,9 +55,10 @@
 - **Day 64**: 练习8
 - **Day 65**: 练习9
 - **Day 66**: 练习10
+- **Day 67**: 练习11
 
 ### 🔄 进行中
-- **Day 67**: 练习11
+- **Day 68**: 练习12
 ### ⏳ 待学习
 - 面向对象编程
 - 网络请求
@@ -87,34 +88,22 @@ https://space.bilibili.com/3546597933714079?spm_id_from=333.788.upinfo.head.clic
 
 ## 💻 今日代码示例
 
-# from sys import argv
-# from os.path import exists  # 用于检查文件是否存在
-#
-# script, from_file, to_file = argv
-#
-# print(f"正在从{from_file}复制到{to_file}")
-#
-# with open(from_file) as in_file, open(to_file, 'w') as out_file:
-#
-#     indata = in_file.read()
-#
-#     print(f"输入文件的大小是{len(indata)}字节")
-#     print(f"输出文件是否已存在？{exists(to_file)}")
-#     print("准备就绪，按回车键继续，按CTRL-C 取消")
-#     input()
-#
-#     out_file.write(indata)
-#
-# print("好的，全部完成。")
-#
-# with open('ex_sample2.txt','r')as txt:
-#     content = txt.read()
-#     print(content)
+from sys import argv
+
+def copy_file(source,destination):
+    """拷贝文件"""
+    with open(source) as src, open(destination, 'w')as dst:
+        dst.write(src.read())
+    print(f"已从{source}拷贝到{destination}")
+
+# 使用函数
+if len(argv) == 3:
+    copy_file(argv[1], argv[2])
 📈 每周总结
 第8周总结
 学习内容:做笨方法学习python的习题，巩固基础
 
-完成情况: 3/7天
+完成情况: 4/7天
 
 收获: 知道了os、time、sys、random模块
 最后更新: 2025年11月
