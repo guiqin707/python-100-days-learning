@@ -6,10 +6,10 @@
 
 | 项目 | 进度 |
 |------|------|
-| **总天数** | 67/100 天 |
+| **总天数** | 68/100 天 |
 | **开始日期** | 2025年9月 |
-| **代码文件数** | 40个 |
-| **提交次数** | 40 次 |
+| **代码文件数** | 41个 |
+| **提交次数** | 41 次 |
 
 ## 🗓️ 每日学习记录
 
@@ -56,9 +56,10 @@
 - **Day 65**: 练习9
 - **Day 66**: 练习10
 - **Day 67**: 练习11
+- **Day 68**: 练习12
 
 ### 🔄 进行中
-- **Day 68**: 练习12
+- **Day 69**: 练习13
 ### ⏳ 待学习
 - 面向对象编程
 - 网络请求
@@ -88,22 +89,36 @@ https://space.bilibili.com/3546597933714079?spm_id_from=333.788.upinfo.head.clic
 
 ## 💻 今日代码示例
 
-from sys import argv
+def calculate_total(price, quantity, tax_rate=0.1):
+    """计算总价（含税）"""
+    subtotal = price * quantity
+    tax = subtotal * tax_rate
+    total = subtotal + tax
+    return total
 
-def copy_file(source,destination):
-    """拷贝文件"""
-    with open(source) as src, open(destination, 'w')as dst:
-        dst.write(src.read())
-    print(f"已从{source}拷贝到{destination}")
+# 不同的调用方式
+print("方式1 - 直接数值：")
+totall = calculate_total(100,4,0.05)
+print(f"总价：{totall}")
 
-# 使用函数
-if len(argv) == 3:
-    copy_file(argv[1], argv[2])
+print("\n方式2 - 使用变量")
+item_price = 50
+item_quantity = 3
+total2 = calculate_total(item_price, item_quantity)
+print(f"总价：{total2}")
+
+print("\n方式3 - 使用表达式")
+total3 = calculate_total(25 * 2, 1 + 2)
+print(f"总价：{total3}")
+
+print("\n方式4 - 混合使用")
+total4 = calculate_total(item_price + 10, item_quantity * 2)
+print(f"总价：{total4}")
 📈 每周总结
 第8周总结
 学习内容:做笨方法学习python的习题，巩固基础
 
-完成情况: 4/7天
+完成情况: 5/7天
 
 收获: 知道了os、time、sys、random模块
 最后更新: 2025年11月
