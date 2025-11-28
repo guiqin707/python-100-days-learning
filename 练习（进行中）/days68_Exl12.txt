@@ -1,0 +1,46 @@
+def cheese_and_crackers(cheese_count, boxes_of_crackers):         #定义函数
+    print(f"You have{cheese_count} cheeses!")       #打印带有参数的格式化字符串
+    print(f"You have {boxes_of_crackers} boxes of crackers!")    #打印带有参数的格式化字符串
+    print("Man that's enough for a party!")   #打印字符串
+    print("Get a blanket!")      #打印字符串
+
+print("We can just give the function numbers directly:")    #准备运行函数
+cheese_and_crackers(10,30)   #调用函数传参
+
+print("OR, we can use variables from our script:")      #打印提示信息
+amount_of_cheese = 5      #定义变量
+amount_of_crackers = 10    #定义变量
+
+cheese_and_crackers(amount_of_cheese, amount_of_crackers)   #调用函数传参
+
+print("We can even do math inside too:")   #准备调用
+cheese_and_crackers(5 + 10 , 8 + 6)        #传入表达式参数
+
+print("And we can combine the two, variables and math:")     #预备
+cheese_and_crackers(amount_of_cheese + 50, amount_of_crackers + 2000)    #调用函数传参
+
+def calculate_total(price, quantity, tax_rate=0.1):
+    """计算总价（含税）"""
+    subtotal = price * quantity
+    tax = subtotal * tax_rate
+    total = subtotal + tax
+    return total
+
+# 不同的调用方式
+print("方式1 - 直接数值：")
+totall = calculate_total(100,4,0.05)
+print(f"总价：{totall}")
+
+print("\n方式2 - 使用变量")
+item_price = 50
+item_quantity = 3
+total2 = calculate_total(item_price, item_quantity)
+print(f"总价：{total2}")
+
+print("\n方式3 - 使用表达式")
+total3 = calculate_total(25 * 2, 1 + 2)
+print(f"总价：{total3}")
+
+print("\n方式4 - 混合使用")
+total4 = calculate_total(item_price + 10, item_quantity * 2)
+print(f"总价：{total4}")
