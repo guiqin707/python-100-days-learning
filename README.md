@@ -6,10 +6,10 @@
 
 | 项目 | 进度 |
 |------|------|
-| **总天数** | 68/100 天 |
+| **总天数** | 69/100 天 |
 | **开始日期** | 2025年9月 |
-| **代码文件数** | 41个 |
-| **提交次数** | 41 次 |
+| **代码文件数** | 42个 |
+| **提交次数** | 42 次 |
 
 ## 🗓️ 每日学习记录
 
@@ -57,9 +57,10 @@
 - **Day 66**: 练习10
 - **Day 67**: 练习11
 - **Day 68**: 练习12
+- **Day 69**: 练习13
 
 ### 🔄 进行中
-- **Day 69**: 练习13
+- **Day 70**: 练习14
 ### ⏳ 待学习
 - 面向对象编程
 - 网络请求
@@ -89,36 +90,59 @@ https://space.bilibili.com/3546597933714079?spm_id_from=333.788.upinfo.head.clic
 
 ## 💻 今日代码示例
 
-def calculate_total(price, quantity, tax_rate=0.1):
-    """计算总价（含税）"""
-    subtotal = price * quantity
-    tax = subtotal * tax_rate
-    total = subtotal + tax
-    return total
+# with open('ex_sample.txt', 'w')as f:
+#     f.write('hi~guigui\n')
+#     f.write("how are you\n")
+#     f.write("you're hardworking\n")
+# print("已经输入成功")
+from sys import argv   #导入sys包中的argv模块
 
-# 不同的调用方式
-print("方式1 - 直接数值：")
-totall = calculate_total(100,4,0.05)
-print(f"总价：{totall}")
+script, input_file = argv   # 解包argv，获取脚本名和输入文件名
 
-print("\n方式2 - 使用变量")
-item_price = 50
-item_quantity = 3
-total2 = calculate_total(item_price, item_quantity)
-print(f"总价：{total2}")
+def print_all(file_obj):   #定义打印整个文件内容函数
+    """打印文件的全部内容"""
+    print("=== 文件内容 ===")   #打印提示信息
+    print(file_obj.read())    #打印文件内容
 
-print("\n方式3 - 使用表达式")
-total3 = calculate_total(25 * 2, 1 + 2)
-print(f"总价：{total3}")
+def rewind(file_obj):    #定义重置函数
+    """将文件指针重置到文件开头"""
+    file_obj.seek(0)    # 将文件指针移动到文件开头
+    print("文件指针已经重置到开头")    #打印提示信息
 
-print("\n方式4 - 混合使用")
-total4 = calculate_total(item_price + 10, item_quantity * 2)
-print(f"总价：{total4}")
+def print_a_line(line_number, file_obj):  #定义打印行信息函数
+    """打印文件的指定行"""
+    line_content = file_obj.readline()   # 读取文件的一行内容
+    if line_content: #如果不是空行
+        print(f"第{line_number}行: {line_content}", end='')  #打印行号和内容
+    else:
+        print(f"第{line_number}行：[文件结束]")    # 打印文件结束提示
+    # 主程序
+print(f"正在处理文件：{input_file}")   # 显示正在处理的文件名
+print()    #打印空行
+
+with open(input_file, 'r', encoding='utf-8') as current_file: #以只读模式打开文件
+# 打印整个文件
+    print_all(current_file)   #调用函数传参
+    print()        #打印空行
+
+# 重置文件指针
+    rewind(current_file)    #调用指针函数，并传参
+    print()         #打印空行
+
+# 逐行打印
+    print("开始逐行打印")      #打印提示信息
+    for line_num in range(1, 4):  #循环3次 读取前3行
+        print_a_line(line_num, current_file)   #调用函数并传参
+
+    print("\n继续读取更多行")        #打印提示信息
+
+    for line_num in range(4, 7):    #循环3次，再读取3行
+        
 📈 每周总结
 第8周总结
 学习内容:做笨方法学习python的习题，巩固基础
 
-完成情况: 5/7天
+完成情况: 6/7天
 
 收获: 知道了os、time、sys、random模块
 最后更新: 2025年11月
