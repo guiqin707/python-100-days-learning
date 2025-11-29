@@ -1,0 +1,48 @@
+# with open('ex_sample.txt', 'w')as f:
+#     f.write('hi~guigui\n')
+#     f.write("how are you\n")
+#     f.write("you're hardworking\n")
+# print("已经输入成功")
+from sys import argv   #导入sys包中的argv模块
+
+script, input_file = argv   # 解包argv，获取脚本名和输入文件名
+
+def print_all(file_obj):   #定义打印整个文件内容函数
+    """打印文件的全部内容"""
+    print("=== 文件内容 ===")   #打印提示信息
+    print(file_obj.read())    #打印文件内容
+
+def rewind(file_obj):    #定义重置函数
+    """将文件指针重置到文件开头"""
+    file_obj.seek(0)    # 将文件指针移动到文件开头
+    print("文件指针已经重置到开头")    #打印提示信息
+
+def print_a_line(line_number, file_obj):  #定义打印行信息函数
+    """打印文件的指定行"""
+    line_content = file_obj.readline()   # 读取文件的一行内容
+    if line_content: #如果不是空行
+        print(f"第{line_number}行: {line_content}", end='')  #打印行号和内容
+    else:
+        print(f"第{line_number}行：[文件结束]")    # 打印文件结束提示
+    # 主程序
+print(f"正在处理文件：{input_file}")   # 显示正在处理的文件名
+print()    #打印空行
+
+with open(input_file, 'r', encoding='utf-8') as current_file: #以只读模式打开文件
+# 打印整个文件
+    print_all(current_file)   #调用函数传参
+    print()        #打印空行
+
+# 重置文件指针
+    rewind(current_file)    #调用指针函数，并传参
+    print()         #打印空行
+
+# 逐行打印
+    print("开始逐行打印")      #打印提示信息
+    for line_num in range(1, 4):  #循环3次 读取前3行
+        print_a_line(line_num, current_file)   #调用函数并传参
+
+    print("\n继续读取更多行")        #打印提示信息
+
+    for line_num in range(4, 7):    #循环3次，再读取3行
+        
