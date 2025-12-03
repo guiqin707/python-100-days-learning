@@ -1,0 +1,37 @@
+print("Let's practice everything.")
+print('You\'d need to know \'bout escapes with \\ that do \n newlines and \t tabs.')
+
+poem = """
+\t The lovely world
+with logic so firmly planted
+cannot discern \n the needs of love
+nor comprehend passion from intuition
+and requires an explanation
+\n\t\twhere there is none.
+"""
+print("-" * 15)
+print(poem)
+print("-" * 15)
+
+# 简单的数学计算
+five = 10 + 2 - 3 + 6
+print(f"This should be five: {five}")
+
+def secret_formula(started):
+    """计算豆子、罐子和箱子的数量"""
+    jelly_beans = started * 500
+    jars = jelly_beans // 1000 #1000个豆子装一罐
+    crates = jars // 100      #100罐装一箱
+    return jelly_beans, jars, crates
+
+# 初始起点
+
+start_point = 10000
+beans, jars, crates = secret_formula(start_point)
+
+print(f"With a starting point of: {start_point}")
+print(f"We'd have {beans} beans, {jars} jars, and {crates} crates.")
+
+# 改变起点
+start_point = start_point //10#在 Python 3 中，/ 是浮点数除法，// 是整数除法
+print(f"\nWith a new starting point of: {start_point}")
