@@ -6,10 +6,10 @@
 
 | 项目 | 进度 |
 |------|------|
-| **总天数** | 69/100 天 |
+| **总天数** | 70/100 天 |
 | **开始日期** | 2025年9月 |
-| **代码文件数** | 42个 |
-| **提交次数** | 42 次 |
+| **代码文件数** | 43个 |
+| **提交次数** | 43 次 |
 
 ## 🗓️ 每日学习记录
 
@@ -58,9 +58,10 @@
 - **Day 67**: 练习11
 - **Day 68**: 练习12
 - **Day 69**: 练习13
+- **Day 70**: 练习14
 
 ### 🔄 进行中
-- **Day 70**: 练习14
+- **Day 71**: 练习15（在复习前面的练习，停更两天）
 ### ⏳ 待学习
 - 面向对象编程
 - 网络请求
@@ -90,61 +91,43 @@ https://space.bilibili.com/3546597933714079?spm_id_from=333.788.upinfo.head.clic
 
 ## 💻 今日代码示例
 
-# with open('ex_sample.txt', 'w')as f:
-#     f.write('hi~guigui\n')
-#     f.write("how are you\n")
-#     f.write("you're hardworking\n")
-# print("已经输入成功")
-from sys import argv   #导入sys包中的argv模块
+def add(a, b):
+    print(f"ADDINF{a} + {b}")
+    return a + b
 
-script, input_file = argv   # 解包argv，获取脚本名和输入文件名
+def subtract(a, b ):
+    print(f"SUBTRACTING{a} - {b}")
+    return a - b
 
-def print_all(file_obj):   #定义打印整个文件内容函数
-    """打印文件的全部内容"""
-    print("=== 文件内容 ===")   #打印提示信息
-    print(file_obj.read())    #打印文件内容
+def multiply(a, b):
+    print(f"MULTIPLYING{a} * {b}")
+    return a * b
+def divide(a, b):
+    print(f"DIVIDING {a} / {b}")
+    return a / b
 
-def rewind(file_obj):    #定义重置函数
-    """将文件指针重置到文件开头"""
-    file_obj.seek(0)    # 将文件指针移动到文件开头
-    print("文件指针已经重置到开头")    #打印提示信息
+print("Let's do some math with just functions!")
 
-def print_a_line(line_number, file_obj):  #定义打印行信息函数
-    """打印文件的指定行"""
-    line_content = file_obj.readline()   # 读取文件的一行内容
-    if line_content: #如果不是空行
-        print(f"第{line_number}行: {line_content}", end='')  #打印行号和内容
-    else:
-        print(f"第{line_number}行：[文件结束]")    # 打印文件结束提示
-    # 主程序
-print(f"正在处理文件：{input_file}")   # 显示正在处理的文件名
-print()    #打印空行
+age = add(9, 9)
+height = subtract(12, 4)
+weight = multiply(90, 2)
+iq = divide(200, 2)
 
-with open(input_file, 'r', encoding='utf-8') as current_file: #以只读模式打开文件
-# 打印整个文件
-    print_all(current_file)   #调用函数传参
-    print()        #打印空行
+print(f"Age: {age}, Height: {height}, Weight: {weight}, IQ: {iq}")
 
-# 重置文件指针
-    rewind(current_file)    #调用指针函数，并传参
-    print()         #打印空行
+# A puzzle for the extra credit, type it in anyway.
+print("Here is a puzzle.")
 
-# 逐行打印
-    print("开始逐行打印")      #打印提示信息
-    for line_num in range(1, 4):  #循环3次 读取前3行
-        print_a_line(line_num, current_file)   #调用函数并传参
-
-    print("\n继续读取更多行")        #打印提示信息
-
-    for line_num in range(4, 7):    #循环3次，再读取3行
+what = add(age, subtract(height, multiply(weight, divide(iq, 2))))
+print("That becomes:", what, "Can you do it by hand ?")
         
 📈 每周总结
 第8周总结
 学习内容:做笨方法学习python的习题，巩固基础
 
-完成情况: 6/7天
+完成情况: 7/7天
 
-收获: 知道了os、time、sys、random模块
+收获: 巩固函数，重学了return，真的要每天写，py的语法真的很容易忘
 最后更新: 2025年11月
 每日更新，持续进步中...
 
