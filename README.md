@@ -6,10 +6,10 @@
 
 | 项目 | 进度 |
 |------|------|
-| **总天数** | 70/100 天 |
+| **总天数** | 71/100 天 |
 | **开始日期** | 2025年9月 |
-| **代码文件数** | 43个 |
-| **提交次数** | 43 次 |
+| **代码文件数** | 44个 |
+| **提交次数** | 44 次 |
 
 ## 🗓️ 每日学习记录
 
@@ -59,9 +59,11 @@
 - **Day 68**: 练习12
 - **Day 69**: 练习13
 - **Day 70**: 练习14
+- **Day 71**: 练习15
+- 
 
 ### 🔄 进行中
-- **Day 71**: 练习15（在复习前面的练习，停更两天）
+- **Day 72**: 练习16
 ### ⏳ 待学习
 - 面向对象编程
 - 网络请求
@@ -91,44 +93,53 @@ https://space.bilibili.com/3546597933714079?spm_id_from=333.788.upinfo.head.clic
 
 ## 💻 今日代码示例
 
-def add(a, b):
-    print(f"ADDINF{a} + {b}")
-    return a + b
+print("Let's practice everything.")
+print('You\'d need to know \'bout escapes with \\ that do \n newlines and \t tabs.')
 
-def subtract(a, b ):
-    print(f"SUBTRACTING{a} - {b}")
-    return a - b
+poem = """
+\t The lovely world
+with logic so firmly planted
+cannot discern \n the needs of love
+nor comprehend passion from intuition
+and requires an explanation
+\n\t\twhere there is none.
+"""
+print("-" * 15)
+print(poem)
+print("-" * 15)
 
-def multiply(a, b):
-    print(f"MULTIPLYING{a} * {b}")
-    return a * b
-def divide(a, b):
-    print(f"DIVIDING {a} / {b}")
-    return a / b
+# 简单的数学计算
+five = 10 + 2 - 3 + 6
+print(f"This should be five: {five}")
 
-print("Let's do some math with just functions!")
+def secret_formula(started):
+    """计算豆子、罐子和箱子的数量"""
+    jelly_beans = started * 500
+    jars = jelly_beans // 1000 #1000个豆子装一罐
+    crates = jars // 100      #100罐装一箱
+    return jelly_beans, jars, crates
 
-age = add(9, 9)
-height = subtract(12, 4)
-weight = multiply(90, 2)
-iq = divide(200, 2)
+# 初始起点
 
-print(f"Age: {age}, Height: {height}, Weight: {weight}, IQ: {iq}")
+start_point = 10000
+beans, jars, crates = secret_formula(start_point)
 
-# A puzzle for the extra credit, type it in anyway.
-print("Here is a puzzle.")
+print(f"With a starting point of: {start_point}")
+print(f"We'd have {beans} beans, {jars} jars, and {crates} crates.")
 
-what = add(age, subtract(height, multiply(weight, divide(iq, 2))))
-print("That becomes:", what, "Can you do it by hand ?")
+# 改变起点
+start_point = start_point //10#在 Python 3 中，/ 是浮点数除法，// 是整数除法
+print(f"\nWith a new starting point of: {start_point}")
+
         
 📈 每周总结
 第8周总结
 学习内容:做笨方法学习python的习题，巩固基础
 
-完成情况: 7/7天
+完成情况: 3/7天
 
 收获: 巩固函数，重学了return，真的要每天写，py的语法真的很容易忘
-最后更新: 2025年11月
+最后更新: 2025年12月
 每日更新，持续进步中...
 
 坚持每天学习，100天后见证不一样的自己！
