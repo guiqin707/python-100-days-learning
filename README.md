@@ -6,10 +6,10 @@
 
 | 项目 | 进度 |
 |------|------|
-| **总天数** | 71/100 天 |
+| **总天数** | 72/100 天 |
 | **开始日期** | 2025年9月 |
-| **代码文件数** | 44个 |
-| **提交次数** | 44 次 |
+| **代码文件数** | 45个 |
+| **提交次数** | 45 次 |
 
 ## 🗓️ 每日学习记录
 
@@ -60,10 +60,11 @@
 - **Day 69**: 练习13
 - **Day 70**: 练习14
 - **Day 71**: 练习15
+- **Day 72**: 练习16
 - 
 
 ### 🔄 进行中
-- **Day 72**: 练习16
+- **Day 73**: 练习17
 ### ⏳ 待学习
 - 面向对象编程
 - 网络请求
@@ -93,50 +94,58 @@ https://space.bilibili.com/3546597933714079?spm_id_from=333.788.upinfo.head.clic
 
 ## 💻 今日代码示例
 
-print("Let's practice everything.")
-print('You\'d need to know \'bout escapes with \\ that do \n newlines and \t tabs.')
+import exl25
+def test_all_functions():
+    """测试exl.25.py模块中的所有函数"""
+    test_sentence = "Python is d great programing language"
 
-poem = """
-\t The lovely world
-with logic so firmly planted
-cannot discern \n the needs of love
-nor comprehend passion from intuition
-and requires an explanation
-\n\t\twhere there is none.
-"""
-print("-" * 15)
-print(poem)
-print("-" * 15)
+    print("1. 测试 break_words:")
+    words = exl25.break_words(test_sentence)
+    print(f"原始句子：{test_sentence}")
+    print(f"分割后的单词：{words}")
+    print()
+    print("2. 测试 sort_words:")
+    print("2. 测试 sort_words:")
+    sorted_words = exl25.sort_words(words)
+    print(f"排序后的单词: {sorted_words}")
+    print()
 
-# 简单的数学计算
-five = 10 + 2 - 3 + 6
-print(f"This should be five: {five}")
+    print("3. 测试 print_first_word:")
+    words_copy = words.copy()
+    print("移除并打印第一个单词:")
+    exl25.print_first_word(words_copy)
+    print(f"剩余单词: {words_copy}")
+    print()
 
-def secret_formula(started):
-    """计算豆子、罐子和箱子的数量"""
-    jelly_beans = started * 500
-    jars = jelly_beans // 1000 #1000个豆子装一罐
-    crates = jars // 100      #100罐装一箱
-    return jelly_beans, jars, crates
+    print("4. 测试 print_last_word:")
+    print("移除并打印最后一个单词:")
+    exl25.print_last_word(words_copy)
+    print(f"剩余单词: {words_copy}")
+    print()
 
-# 初始起点
+    print("5. 测试 sort_sentence:")
+    sorted_result = exl25.sort_sentence(test_sentence)
+    print(f"排序后的句子单词: {sorted_result}")
+    print()
 
-start_point = 10000
-beans, jars, crates = secret_formula(start_point)
+    print("6. 测试 print_first_and_last:")
+    print("打印原句子的第一个和最后一个单词:")
+    exl25.print_first_and_last(test_sentence)
+    print()
 
-print(f"With a starting point of: {start_point}")
-print(f"We'd have {beans} beans, {jars} jars, and {crates} crates.")
+    print("7. 测试 print_first_and_last_sorted:")
+    print("打印排序后的第一个和最后一个单词:")
+    exl25.print_first_and_last_sorted(test_sentence)
 
-# 改变起点
-start_point = start_point //10#在 Python 3 中，/ 是浮点数除法，// 是整数除法
-print(f"\nWith a new starting point of: {start_point}")
+if __name__ == "__main__":
+    test_all_functions()
 
         
 📈 每周总结
 第8周总结
 学习内容:做笨方法学习python的习题，巩固基础
 
-完成情况: 3/7天
+完成情况: 4/7天
 
 收获: 巩固函数，重学了return，真的要每天写，py的语法真的很容易忘
 最后更新: 2025年12月
