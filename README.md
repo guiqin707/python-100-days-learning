@@ -6,10 +6,10 @@
 
 | 项目 | 进度 |
 |------|------|
-| **总天数** | 72/100 天 |
+| **总天数** | 73/100 天 |
 | **开始日期** | 2025年9月 |
-| **代码文件数** | 45个 |
-| **提交次数** | 45 次 |
+| **代码文件数** | 46个 |
+| **提交次数** | 46 次 |
 
 ## 🗓️ 每日学习记录
 
@@ -61,10 +61,11 @@
 - **Day 70**: 练习14
 - **Day 71**: 练习15
 - **Day 72**: 练习16
+- **Day 73**: 练习17
 - 
 
 ### 🔄 进行中
-- **Day 73**: 练习17
+- **Day 74**: 练习18
 ### ⏳ 待学习
 - 面向对象编程
 - 网络请求
@@ -94,58 +95,49 @@ https://space.bilibili.com/3546597933714079?spm_id_from=333.788.upinfo.head.clic
 
 ## 💻 今日代码示例
 
-import exl25
-def test_all_functions():
-    """测试exl.25.py模块中的所有函数"""
-    test_sentence = "Python is d great programing language"
+print("布尔逻辑表达式验证：")
+print("-" * 40)
 
-    print("1. 测试 break_words:")
-    words = exl25.break_words(test_sentence)
-    print(f"原始句子：{test_sentence}")
-    print(f"分割后的单词：{words}")
-    print()
-    print("2. 测试 sort_words:")
-    print("2. 测试 sort_words:")
-    sorted_words = exl25.sort_words(words)
-    print(f"排序后的单词: {sorted_words}")
-    print()
+expressions = [
+    ("True and True", True and True),
+    ("False and True", False and True),
+    ("1 == 1 and 2 == 1", 1 == 1 and 2 == 1),
+    ("'test' == 'test'", 'test' == 'test'),
+    ("1 == 1 or 2 != 1", 1 == 1 or 2 != 1),
+    ("True and 1 == 1", True and 1 == 1),
+    ("False and 0 != 0", False and 0 != 0),
+    ("True or  1 == 1", True or 1 == 1),
+    ("'test' == 'testing'", 'test' == 'testing'),
+    ("1 != 0 and 2 == 1", 1 !=0 and 2 == 1),
+    ("'test' != 'testing'", 'test' != 'testing'),
+    ("'test' == 1", 'test' == 1),
+    ("not (True and False", not (True and False)),
+    ("not (1 == 1 and 0 != 1)", not(1 == 1 and 0 != 1)),
+    ("not(10 == 1 or 1000 == 1000)", not (10 == 1 or 1000 == 1000)),
+    ("not (1 != 10 or 3 == 4)", not (1 != 10 or 3 == 4)),
+    ("not ('testing' == 'testing' and 'guigui' == 'cool girl')", not ('testing' == 'testing' and 'guigui' == 'cool girl')),
+    ("1 == 1 and (not ('testing' == 1 or 1 == 0))", 1 == 1 and (not ("testing" == 1 or 1 == 0))),
+    ("'chunky' == 'bacon' and (not (3 == 4 or 3 == 3))", "chunky" == "bacon" and (not (3 == 4 or 3 == 3))),
+    ("3 == 3 and (not ('testing' == 'testing' or 'Python' == 'Fun'))",
+     3 == 3 and (not ("testing" == "testing" or "Python" == "Fun")))
+]
 
-    print("3. 测试 print_first_word:")
-    words_copy = words.copy()
-    print("移除并打印第一个单词:")
-    exl25.print_first_word(words_copy)
-    print(f"剩余单词: {words_copy}")
-    print()
-
-    print("4. 测试 print_last_word:")
-    print("移除并打印最后一个单词:")
-    exl25.print_last_word(words_copy)
-    print(f"剩余单词: {words_copy}")
-    print()
-
-    print("5. 测试 sort_sentence:")
-    sorted_result = exl25.sort_sentence(test_sentence)
-    print(f"排序后的句子单词: {sorted_result}")
-    print()
-
-    print("6. 测试 print_first_and_last:")
-    print("打印原句子的第一个和最后一个单词:")
-    exl25.print_first_and_last(test_sentence)
-    print()
-
-    print("7. 测试 print_first_and_last_sorted:")
-    print("打印排序后的第一个和最后一个单词:")
-    exl25.print_first_and_last_sorted(test_sentence)
-
-if __name__ == "__main__":
-    test_all_functions()
+for i ,(expr, result) in enumerate(expressions, 1):
+    print(f"{i:2}. {expr:60} = {result}")
+    # 算优先级：括号 > not > and > or
+    # (expr, result) 解包元组：expr 得到字符串，result 得到布尔值
+    # {i:2}：格式说明，表示 i 占2个字符宽度，右对齐
+    #
+    # {expr:60}：expr 占60个字符宽度，左对齐
+    #
+    # {result}：直接输出结果
 
         
 📈 每周总结
 第8周总结
 学习内容:做笨方法学习python的习题，巩固基础
 
-完成情况: 4/7天
+完成情况: 5/7天
 
 收获: 巩固函数，重学了return，真的要每天写，py的语法真的很容易忘
 最后更新: 2025年12月
