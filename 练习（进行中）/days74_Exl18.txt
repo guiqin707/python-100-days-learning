@@ -1,0 +1,32 @@
+people = 20
+cats = 30
+dogs = 15
+
+print("开始判断 ...")
+
+# 使用if-else
+if people < cats:
+    print("猫比人多")
+else:
+    print("猫和人一样多或者比人多")
+
+# 使用if-elif-else
+if people > dogs:
+    print("人比狗多")
+elif people < dogs:
+    print("狗比人多")
+else:
+    print("人和狗一样多")
+
+# 使用多个条件
+
+dogs += 5
+
+if people == dogs:
+    print("人数等于狗数（20 == 20）")
+
+if people == dogs and people < cats:
+    print("人数等于狗数，且人数小于猫数")
+
+if people == dogs or people == cats:
+    print("人数等于狗数，或者人数等于猫数")
