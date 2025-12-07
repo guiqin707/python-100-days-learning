@@ -6,10 +6,10 @@
 
 | 项目 | 进度 |
 |------|------|
-| **总天数** | 73/100 天 |
+| **总天数** | 74/100 天 |
 | **开始日期** | 2025年9月 |
-| **代码文件数** | 46个 |
-| **提交次数** | 46 次 |
+| **代码文件数** | 47个 |
+| **提交次数** | 47 次 |
 
 ## 🗓️ 每日学习记录
 
@@ -62,10 +62,11 @@
 - **Day 71**: 练习15
 - **Day 72**: 练习16
 - **Day 73**: 练习17
+- **Day 74**: 练习18
 - 
 
 ### 🔄 进行中
-- **Day 74**: 练习18
+- **Day 75**: 练习19
 ### ⏳ 待学习
 - 面向对象编程
 - 网络请求
@@ -95,49 +96,44 @@ https://space.bilibili.com/3546597933714079?spm_id_from=333.788.upinfo.head.clic
 
 ## 💻 今日代码示例
 
-print("布尔逻辑表达式验证：")
-print("-" * 40)
+people = 20
+cats = 30
+dogs = 15
 
-expressions = [
-    ("True and True", True and True),
-    ("False and True", False and True),
-    ("1 == 1 and 2 == 1", 1 == 1 and 2 == 1),
-    ("'test' == 'test'", 'test' == 'test'),
-    ("1 == 1 or 2 != 1", 1 == 1 or 2 != 1),
-    ("True and 1 == 1", True and 1 == 1),
-    ("False and 0 != 0", False and 0 != 0),
-    ("True or  1 == 1", True or 1 == 1),
-    ("'test' == 'testing'", 'test' == 'testing'),
-    ("1 != 0 and 2 == 1", 1 !=0 and 2 == 1),
-    ("'test' != 'testing'", 'test' != 'testing'),
-    ("'test' == 1", 'test' == 1),
-    ("not (True and False", not (True and False)),
-    ("not (1 == 1 and 0 != 1)", not(1 == 1 and 0 != 1)),
-    ("not(10 == 1 or 1000 == 1000)", not (10 == 1 or 1000 == 1000)),
-    ("not (1 != 10 or 3 == 4)", not (1 != 10 or 3 == 4)),
-    ("not ('testing' == 'testing' and 'guigui' == 'cool girl')", not ('testing' == 'testing' and 'guigui' == 'cool girl')),
-    ("1 == 1 and (not ('testing' == 1 or 1 == 0))", 1 == 1 and (not ("testing" == 1 or 1 == 0))),
-    ("'chunky' == 'bacon' and (not (3 == 4 or 3 == 3))", "chunky" == "bacon" and (not (3 == 4 or 3 == 3))),
-    ("3 == 3 and (not ('testing' == 'testing' or 'Python' == 'Fun'))",
-     3 == 3 and (not ("testing" == "testing" or "Python" == "Fun")))
-]
+print("开始判断 ...")
 
-for i ,(expr, result) in enumerate(expressions, 1):
-    print(f"{i:2}. {expr:60} = {result}")
-    # 算优先级：括号 > not > and > or
-    # (expr, result) 解包元组：expr 得到字符串，result 得到布尔值
-    # {i:2}：格式说明，表示 i 占2个字符宽度，右对齐
-    #
-    # {expr:60}：expr 占60个字符宽度，左对齐
-    #
-    # {result}：直接输出结果
+# 使用if-else
+if people < cats:
+    print("猫比人多")
+else:
+    print("猫和人一样多或者比人多")
 
+# 使用if-elif-else
+if people > dogs:
+    print("人比狗多")
+elif people < dogs:
+    print("狗比人多")
+else:
+    print("人和狗一样多")
+
+# 使用多个条件
+
+dogs += 5
+
+if people == dogs:
+    print("人数等于狗数（20 == 20）")
+
+if people == dogs and people < cats:
+    print("人数等于狗数，且人数小于猫数")
+
+if people == dogs or people == cats:
+    print("人数等于狗数，或者人数等于猫数")
         
 📈 每周总结
 第8周总结
 学习内容:做笨方法学习python的习题，巩固基础
 
-完成情况: 5/7天
+完成情况: 6/7天
 
 收获: 巩固函数，重学了return，真的要每天写，py的语法真的很容易忘
 最后更新: 2025年12月
