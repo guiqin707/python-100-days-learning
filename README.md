@@ -6,10 +6,10 @@
 
 | 项目 | 进度 |
 |------|------|
-| **总天数** | 75/100 天 |
+| **总天数** | 76/100 天 |
 | **开始日期** | 2025年9月 |
-| **代码文件数** | 48个 |
-| **提交次数** | 48 次 |
+| **代码文件数** | 49个 |
+| **提交次数** | 49 次 |
 
 ## 🗓️ 每日学习记录
 
@@ -63,10 +63,12 @@
 - **Day 72**: 练习16
 - **Day 73**: 练习17
 - **Day 74**: 练习18
+- **Day 75**: 练习19
+- **Day 76**: 练习20
 - 
 
 ### 🔄 进行中
-- **Day 75**: 练习19
+- **Day 77**: 练习21
 ### ⏳ 待学习
 - 面向对象编程
 - 网络请求
@@ -96,95 +98,88 @@ https://space.bilibili.com/3546597933714079?spm_id_from=333.788.upinfo.head.clic
 
 ## 💻 今日代码示例
 
-# # 文件名：adventure_game.py
-# print("You enter a dark room with two doors. Do you go through door #1 or door #2?")
-#
-# door = input(">")
-#
-# if door == "1":
-#     print("There's a giant bear here eating a cheese cake. What do you do ?")
-#     print("1. Take the cake.")
-#     print("2. Scream at the bear.")
-#
-#     bear = input(">")
-#
-#     if bear == "1":
-#         print("The bear eats your face off. Good job!")
-#     elif bear == "2":
-#         print("The bear eats your legs off. Good job!")
-#     else:
-#         print(f"Well, doing {bear} is probably better. Bear runs away.")
-#
-# elif door == "2":
-#     print("You stare into the endless abyss at Cthulhu's retina.")
-#     print("1. Blueberries.")
-#     print("2. Yellow jacket clothespins.")
-#     print("3. Understanding revolvers yelling melodies.")
-#
-#     insanity = input(">")
-#
-#     if insanity == "1" or insanity == "2":
-#         print("Your body survives powered by a mind of jello. Good job!")
-#     else:
-#         print("The insanity rots your eyes into a pool of muck. Good job!")
-#
-# else:
-#     print("You stumble around and fall on a knife and die. Good job!")
+print("=== 列表和循环练习 ===")
 
-# def dark_room_game():
-#     """黑暗房间 - 演示嵌套if语句"""
-#     print("=" * 60)
-#     print("欢迎来到黑暗房间冒险游戏！")
-#     print("=" * 60)
-#     print("\n你进入了一个黑暗的房间，面前有两扇门。")
-#     print("你会选择1号门还死2号门")
-#
-#     door = input("请输入 1 或 2 ：").strip()
-#
-#     if door == "1":
-#         print("\n你选择了1号门...")
-#         print("里面有一个美杜莎雕像，雕像前面有一个宝箱！你会怎么做？")
-#         print("1. 转头离开")
-#         print("2. 小心上前并打开宝箱看里面有什么好东西")
-#         print("3. 大喊大叫")
-#
-#         action = input("请输入你的选择（1-3）：").strip()
-#         if action == "1":
-#             print("\n你走得太快，踩到了机关，被乱箭射死。干得漂亮！")
-#         elif action == "2":
-#             print("\n你打开了宝箱，触碰到了机关，雕像苏醒，把你变成石人。干得漂亮！")
-#         elif action == "3":
-#             print("\n你把隔壁吃奶酪的熊引过来了，熊的动静惊动了机关和雕像，熊被射死并且变成石头，你拍怕心脏，小心的离开了房间。明智的选择！")
-#         else:
-#             print(f"\n你选择了{action}, 什么都没有发生。")
-#     elif door == "2":
-#         print("\n你选择了2号门...")
-#         print("你凝视着克苏鲁无尽的深渊视网膜")
-#         print("\n你选择了2号门...")
-#         print("你凝视着克苏鲁无尽的深渊视网膜。")
-#         print("1. 蓝莓")
-#         print("2. 黄色夹子")
-#         print("3. 理解左轮手枪在吼叫旋律")
-#
-#         insanity = input("请输入你的选择 (1-3): ").strip()
-#
-#         if insanity in ["1", "2"]:
-#             print("\n你的身体存活下来，但心智变成了果冻。干得漂亮!")
-#         elif insanity == "3":
-#             print("\n你理解了左轮手枪的旋律，获得了超能力!")
-#         else:
-#             print("\n疯狂腐蚀了你的眼睛，变成了一滩污泥。干得漂亮!")
-#
-#     else:
-#         print("\n你犹豫不决，在黑暗中绊倒，摔在刀子上死了。干得漂亮!")
-#
-# if __name__ == "__main__":
-#     dark_room_game()
+# 创建不同类型列表
+print("\n1. 创建列表")
+numbers =[1, 2, 3, 4, 5]
+colors = ['red', 'green', 'blue']
+mixed = [1, "hello", 3.14, True, None]
+nested = [[1,2,3], [4,5,6], [7,8,9]]
+
+print(f"   数字列表：{numbers}")
+print(f"   颜色列表：{colors}")
+print(f"   混合列表：{mixed}")
+print(f"   嵌套列表：{nested}")
+
+# 2. 遍历列表
+print("\n2. 遍历颜色列表：")
+for color in colors:
+    print(f"   颜色：{color}")
+
+# 3. 遍历嵌套列表
+print("\n3. 遍历嵌套列表：")
+for row in nested:
+    for number in row:
+        print(f"   数字：{number}", end=" ")
+    print()  #换行
+
+# 4. 使用range创建列表
+print("\n4. 使用range创建列表：")
+squares = []
+for i in range(1, 11):
+    square = i * i
+    squares.append(square)
+    print(f"   {i}的平方是{square}")
+
+# 5. 列表操作练习
+print("\n5. 列表操作：")
+shopping_list = ['牛奶', '面包', '琴酒', '威士忌']
+
+# 添加物品
+shopping_list.append('eggs')
+print(f"   添加eggs后：{shopping_list}")
+
+# 删除物品
+shopping_list.remove('面包')
+print(f"   删除面包后: {shopping_list}")
+
+# 排序
+shopping_list.sort()
+print(f"   排序后: {shopping_list}")
+
+# 反转
+shopping_list.reverse()
+print(f"   反转后： {shopping_list}")
+
+# 6. 统计列表
+print("\n6. 统计列表信息：")
+test_scores = [85, 92, 99, 75, 86]
+print(f"   考试成绩：{test_scores}")
+print(f"   最高分： {max(test_scores)}")
+print(f"   最低分：{min(test_scores)}")
+print(f"   最低分：{sum(test_scores) / len(test_scores):.1f}")
+print(f"    人数：{len(test_scores)}")
+
+# 7. 条件遍历
+print("\n7. 条件遍历：")
+numbers = [12, 15, 19, 25, 26]
+print(f"   原始数字：{numbers}")
+
+print("   大于20的数字：")
+for num in numbers:
+    if num > 50:
+        print(f"   {num}")
+print("  偶数：")
+for num in numbers:
+    if num % 2 == 0:
+        print(f"   {num}")
+
 📈 每周总结
 第9周总结
 学习内容:做笨方法学习python的习题，巩固基础
 
-完成情况: 7/7天
+完成情况: 1/7天
 
 收获: 临近期末考试，百忙之中还在坚持写，复习了if else 和函数
 最后更新: 2025年12月
