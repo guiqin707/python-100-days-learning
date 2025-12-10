@@ -1,0 +1,36 @@
+print("\n" + "=" * 60)
+print("深入理解列表索引：")
+print("=" * 60)
+
+animals = ['bear', 'python', 'peacock', 'kangaroo', 'whale', 'platypus']
+
+print(f"完整的动物列表： {animals}")
+print(f"列表长度：{len(animals)}")
+print()
+
+# 正向索引
+print("正向索引（从0开始）：")
+for i in range(len(animals)):
+    print(f"  animals[{i}] = '{animals[i]}")
+print()
+
+# 负向索引（从末尾开始）
+print("负向索引（从-1开始，从末尾往前数）：")
+for i in range(1, len(animals) + 1):
+    print(f"  animals[{-i}] = '{animals[-i]}  (倒数第{i}个)")
+print()
+
+# 实际使用中的转换
+print("序数（第几个） 转基数（索引）：")
+print("  序数 -> 基数：减1")
+print("  例如：第1个 ->索引0，第2个 -> 索引1，第3个 -> 索引2")
+
+ordinal_to_index = {
+    "1st": 0, "2nd": 1, "3rd": 2, "4th": 3, "5th": 4, "6th": 5,
+    "first": 0, "second": 1, "third": 2, "fourth": 3, "fifth": 4, "sixth": 5
+}
+
+print("\n转换示例：")
+for ordinal, index in ordinal_to_index.items():
+    if index < len(animals):
+        print(f"   {ordinal}: animals[{index}] = '{animals[index]}")
