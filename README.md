@@ -6,10 +6,10 @@
 
 | 项目 | 进度 |
 |------|------|
-| **总天数** | 76/100 天 |
+| **总天数** | 77/100 天 |
 | **开始日期** | 2025年9月 |
-| **代码文件数** | 49个 |
-| **提交次数** | 49 次 |
+| **代码文件数** | 50个 |
+| **提交次数** | 50 次 |
 
 ## 🗓️ 每日学习记录
 
@@ -65,10 +65,11 @@
 - **Day 74**: 练习18
 - **Day 75**: 练习19
 - **Day 76**: 练习20
+- **Day 77**: 练习21
 - 
 
 ### 🔄 进行中
-- **Day 77**: 练习21
+- **Day 78**: 练习22
 ### ⏳ 待学习
 - 面向对象编程
 - 网络请求
@@ -98,88 +99,33 @@ https://space.bilibili.com/3546597933714079?spm_id_from=333.788.upinfo.head.clic
 
 ## 💻 今日代码示例
 
-print("=== 列表和循环练习 ===")
-
-# 创建不同类型列表
-print("\n1. 创建列表")
-numbers =[1, 2, 3, 4, 5]
-colors = ['red', 'green', 'blue']
-mixed = [1, "hello", 3.14, True, None]
-nested = [[1,2,3], [4,5,6], [7,8,9]]
-
-print(f"   数字列表：{numbers}")
-print(f"   颜色列表：{colors}")
-print(f"   混合列表：{mixed}")
-print(f"   嵌套列表：{nested}")
-
-# 2. 遍历列表
-print("\n2. 遍历颜色列表：")
-for color in colors:
-    print(f"   颜色：{color}")
-
-# 3. 遍历嵌套列表
-print("\n3. 遍历嵌套列表：")
-for row in nested:
-    for number in row:
-        print(f"   数字：{number}", end=" ")
-    print()  #换行
-
-# 4. 使用range创建列表
-print("\n4. 使用range创建列表：")
-squares = []
-for i in range(1, 11):
-    square = i * i
-    squares.append(square)
-    print(f"   {i}的平方是{square}")
-
-# 5. 列表操作练习
-print("\n5. 列表操作：")
-shopping_list = ['牛奶', '面包', '琴酒', '威士忌']
-
-# 添加物品
-shopping_list.append('eggs')
-print(f"   添加eggs后：{shopping_list}")
-
-# 删除物品
-shopping_list.remove('面包')
-print(f"   删除面包后: {shopping_list}")
-
-# 排序
-shopping_list.sort()
-print(f"   排序后: {shopping_list}")
-
-# 反转
-shopping_list.reverse()
-print(f"   反转后： {shopping_list}")
-
-# 6. 统计列表
-print("\n6. 统计列表信息：")
-test_scores = [85, 92, 99, 75, 86]
-print(f"   考试成绩：{test_scores}")
-print(f"   最高分： {max(test_scores)}")
-print(f"   最低分：{min(test_scores)}")
-print(f"   最低分：{sum(test_scores) / len(test_scores):.1f}")
-print(f"    人数：{len(test_scores)}")
-
-# 7. 条件遍历
-print("\n7. 条件遍历：")
-numbers = [12, 15, 19, 25, 26]
-print(f"   原始数字：{numbers}")
-
-print("   大于20的数字：")
-for num in numbers:
-    if num > 50:
-        print(f"   {num}")
-print("  偶数：")
-for num in numbers:
-    if num % 2 == 0:
-        print(f"   {num}")
+# print("while 循环 vs for 循环：")
+# print("-" * 40)
+#
+# # 用while循环实现
+# print("1. 使用while循环：")
+# i = 0
+# numbers_while = []
+# while i < 5 :
+#     numbers_while.append(i)
+#     i += 1
+# print(f"结果：{numbers_while}")
+#
+# # 用for循环实现
+# print("\n2. 使用 for 循环：")
+# numbers_for = []
+# for i in range(5):
+#     numbers_for.append(i)
+# print(f"结果： {numbers_for}")
+#
+# # 比较结果
+# print(f"\n两个结果相同吗？{numbers_while == numbers_for}")
 
 📈 每周总结
 第9周总结
 学习内容:做笨方法学习python的习题，巩固基础
 
-完成情况: 1/7天
+完成情况: 2/7天
 
 收获: 临近期末考试，百忙之中还在坚持写，复习了if else 和函数
 最后更新: 2025年12月
