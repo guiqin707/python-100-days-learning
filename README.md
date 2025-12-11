@@ -6,10 +6,10 @@
 
 | 项目 | 进度 |
 |------|------|
-| **总天数** | 78/100 天 |
+| **总天数** | 79/100 天 |
 | **开始日期** | 2025年9月 |
-| **代码文件数** | 51个 |
-| **提交次数** | 51 次 |
+| **代码文件数** | 52个 |
+| **提交次数** | 52 次 |
 
 ## 🗓️ 每日学习记录
 
@@ -67,10 +67,11 @@
 - **Day 76**: 练习20
 - **Day 77**: 练习21
 - **Day 78**: 练习22
+- **Day 79**: 练习23
 - 
 
 ### 🔄 进行中
-- **Day 79**: 练习23
+- **Day 80**: 练习24
 ### ⏳ 待学习
 - 面向对象编程
 - 网络请求
@@ -100,48 +101,107 @@ https://space.bilibili.com/3546597933714079?spm_id_from=333.788.upinfo.head.clic
 
 ## 💻 今日代码示例
 
-print("\n" + "=" * 60)
-print("深入理解列表索引：")
-print("=" * 60)
+from sys import exit
 
-animals = ['bear', 'python', 'peacock', 'kangaroo', 'whale', 'platypus']
+def gold_room():
+    print("This room is fill of gold. How much do you take?")
 
-print(f"完整的动物列表： {animals}")
-print(f"列表长度：{len(animals)}")
-print()
+    choice = input(">")
+    #更好的数字检查方式
+    if choice.isdigit():  #检查是否为数字
+        how_much = int(choice)
+    else:
+        dead("Man, learn to type a number.")
 
-# 正向索引
-print("正向索引（从0开始）：")
-for i in range(len(animals)):
-    print(f"  animals[{i}] = '{animals[i]}")
-print()
+    if how_much < 50:
+        print("Nice, you're not greedy, you win!")
+        exit(0)#exit()：退出当前 Python 程序.(0)：状态码 0，表示程序正常结束
+    else:
+        dead("You greed bastard")
 
-# 负向索引（从末尾开始）
-print("负向索引（从-1开始，从末尾往前数）：")
-for i in range(1, len(animals) + 1):
-    print(f"  animals[{-i}] = '{animals[-i]}  (倒数第{i}个)")
-print()
 
-# 实际使用中的转换
-print("序数（第几个） 转基数（索引）：")
-print("  序数 -> 基数：减1")
-print("  例如：第1个 ->索引0，第2个 -> 索引1，第3个 -> 索引2")
+def bear_room():
+    print("There is a bear here.")
+    print("The bear has a bunch of honey.")
+    print("The fat bear is in front of another door.")
+    print("How are you going to move the bear?")
+    print("\n你可以输入: take honey, taunt bear, open door")
+    bear_moved = False
 
-ordinal_to_index = {
-    "1st": 0, "2nd": 1, "3rd": 2, "4th": 3, "5th": 4, "6th": 5,
-    "first": 0, "second": 1, "third": 2, "fourth": 3, "fifth": 4, "sixth": 5
-}
+    while True:
+        # 更好的输入处理：去除空格、转换为小写、分割单词
+        user_input = input("> ").strip().lower()
 
-print("\n转换示例：")
-for ordinal, index in ordinal_to_index.items():
-    if index < len(animals):
-        print(f"   {ordinal}: animals[{index}] = '{animals[index]}")
+        # 简单解析用户输入
+        if user_input in ["take honey", "take honey", "honey"]:
+            dead("The bear looks at you then slaps your face off.")
+
+        elif user_input in ["taunt bear", "taunt bear", "taunt"] and not bear_moved:
+            print("The bear has moved from the door. You can go through it now.")
+            bear_moved = True
+
+        elif user_input in ["taunt bear", "taunt bear", "taunt"] and bear_moved:
+            dead("The bear gets pissed off and chews your leg off.")
+
+        elif user_input in ["open door", "opendoor", "door"] and bear_moved:
+            gold_room()
+
+        elif user_input in ["open door", "opendoor", "door"] and not bear_moved:
+            print("The bear is still blocking the door!")
+
+        elif user_input in ["help", "?"]:
+            print("可用命令: take honey, taunt bear, open door")
+
+        else:
+            print("I don't understand that. Type 'help' for commands.")
+
+def cthulhu_room():
+    print("Here you see the great evil Cthulhu.")
+    print("He, it, whatever stares at you and you go insane")
+    print("Do you flee for your life or eat your head?")
+
+    while True:  #使用循环而不是递归，避免递归深度问题
+        choice = input(">").lower()
+
+        if "flee" in choice:
+            start()
+            break  #回到开始后，这个循环结束
+        elif "head" in choice:
+            dead("Well that was tasty!")
+        else:
+            print("You can't do that here. Try again.")
+            #不递归，继续循环
+
+def dead(why):
+    print(f"{why} Good job!")
+    exit(0)
+
+def start():
+    print("You are in a dark room.")
+    print("There is a door to your right and left.")
+    print("Which one do you take?")
+
+    while True:
+        choice = input("> ").lower()
+
+        if choice == "left":
+            bear_room()
+            break
+        elif choice == "right":
+            cthulhu_room()
+            break
+        else:
+            print("You have to choose left or right!")
+
+if __name__ == "__main__":
+    start()
+
 
 📈 每周总结
 第9周总结
 学习内容:做笨方法学习python的习题，巩固基础
 
-完成情况: 3/7天
+完成情况: 4/7天
 
 收获: 临近期末考试，百忙之中还在坚持写，复习了if else 和函数
 最后更新: 2025年12月
