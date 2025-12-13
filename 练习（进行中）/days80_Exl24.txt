@@ -1,0 +1,59 @@
+# def process_data(data):
+#     """处理数据"""
+#     total = 0
+#     count = 0
+#     for num in data:
+#         total += num
+#         count += 1
+#     avg = total /count
+#     return total,count,avg
+#
+# def print_report(total,count,avg):
+#     """打印报告"""
+#     print("=== 数据报告 ===")
+#     print(f"总数：{total}")
+#     print(f"数量：{count}")
+#     print(f"平均值：{avg}")
+#
+# def save_to_file(total,count,avg):
+#     """保存到文件"""
+#     with open('report.txt','w') as f:
+#         f.write(f"总数：{total}\n")
+#         f.write(f"数量：{count}\n")
+#         f.write(f"平均值{avg}\n")
+#
+#
+# def main():
+#     # 测试数据
+#     data = (1, 2, 3, 4, 5)  # 可以是元组或列表
+#
+#     # 1. 处理数据
+#     total, count, avg = process_data(data)
+#
+#     # 2. 打印报告
+#     print_report(total, count, avg)
+#
+#     # 3. 保存到文件
+#     save_to_file(total, count, avg)
+#
+#     print(f"\n数据已处理并保存到 'report.txt'")
+#
+#
+# if __name__ == "__main__":
+#     main()
+
+def sum_divisible_by_three_pythonic(numbers):
+    """使用列表推导式的版本"""
+    return sum(num for num in numbers if num % 3 == 0)
+
+# 或者使用filter
+def sum_divisible_by_three_filter(numbers):
+    """使用filter的版本"""
+    return sum(filter(lambda x: x % 3 == 0, numbers))
+
+# 测试
+test_data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+print("Pythonic版本:")
+print(f"列表推导式: {sum_divisible_by_three_pythonic(test_data)}")
+print(f"filter函数: {sum_divisible_by_three_filter(test_data)}")
