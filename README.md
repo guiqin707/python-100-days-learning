@@ -6,10 +6,10 @@
 
 | 项目 | 进度 |
 |------|------|
-| **总天数** | 80/100 天 |
+| **总天数** | 81/100 天 |
 | **开始日期** | 2025年9月 |
-| **代码文件数** | 53个 |
-| **提交次数** | 53 次 |
+| **代码文件数** | 54个 |
+| **提交次数** | 54 次 |
 
 ## 🗓️ 每日学习记录
 
@@ -69,10 +69,11 @@
 - **Day 78**: 练习22
 - **Day 79**: 练习23
 - **Day 80**: 练习24
+- **Day 81**: 练习25
 - 
 
 ### 🔄 进行中
-- **Day 81**: 练习25
+- **Day 82**: 练习26
 ### ⏳ 待学习
 - 面向对象编程
 - 网络请求
@@ -102,65 +103,95 @@ https://space.bilibili.com/3546597933714079?spm_id_from=333.788.upinfo.head.clic
 
 ## 💻 今日代码示例
 
-# def process_data(data):
-#     """处理数据"""
-#     total = 0
-#     count = 0
-#     for num in data:
-#         total += num
-#         count += 1
-#     avg = total /count
-#     return total,count,avg
-#
-# def print_report(total,count,avg):
-#     """打印报告"""
-#     print("=== 数据报告 ===")
-#     print(f"总数：{total}")
-#     print(f"数量：{count}")
-#     print(f"平均值：{avg}")
-#
-# def save_to_file(total,count,avg):
-#     """保存到文件"""
-#     with open('report.txt','w') as f:
-#         f.write(f"总数：{total}\n")
-#         f.write(f"数量：{count}\n")
-#         f.write(f"平均值{avg}\n")
-#
-#
-# def main():
-#     # 测试数据
-#     data = (1, 2, 3, 4, 5)  # 可以是元组或列表
-#
-#     # 1. 处理数据
-#     total, count, avg = process_data(data)
-#
-#     # 2. 打印报告
-#     print_report(total, count, avg)
-#
-#     # 3. 保存到文件
-#     save_to_file(total, count, avg)
-#
-#     print(f"\n数据已处理并保存到 'report.txt'")
-#
-#
-# if __name__ == "__main__":
-#     main()
+print("=== 字典基础练习 ===")
 
-def sum_divisible_by_three_pythonic(numbers):
-    """使用列表推导式的版本"""
-    return sum(num for num in numbers if num % 3 == 0)
+# 1.创建不同类型的字典
+print("\n. 创建不同类型的字典：")
 
-# 或者使用filter
-def sum_divisible_by_three_filter(numbers):
-    """使用filter的版本"""
-    return sum(filter(lambda x: x % 3 == 0, numbers))
+# 字典串键
+student = {"name": "guigui", "age": 18, "major": "生物学"}
+print(f"学生信息：{student}")
 
-# 测试
-test_data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+# 整数键
+phonebook = {1001:"李四", 1002: "zz"}
+print(f"电话簿：{phonebook}")
 
-print("Pythonic版本:")
-print(f"列表推导式: {sum_divisible_by_three_pythonic(test_data)}")
-print(f"filter函数: {sum_divisible_by_three_filter(test_data)}")
+# 混合类型键
+mixed_dict = {"name": "huihui", 123: "学号", 3.14: "圆周率", True: "布尔值"}
+
+# 嵌套字典
+company = {
+    "name": "科技公司",
+    "departments": {
+        "engineering": ["guigui", "zz"],
+        "sales": ["100w", "500w"],
+        "hr": ["hh", "nn"]
+    },
+    "location": "Shanghai"
+}
+print(f"公司信息：{company}")
+
+# 2.字典操作
+print("\n2. 字典操作：")
+
+# 检查键是否存在
+print(f"'name' 在 student中吗？{'name' in student}")
+print(f"'salary' 在 student 中吗？{'salary' in student}")
+
+# 获取所有键值
+print(f"所有键：{list(student.keys())}")
+print(f"所有值：{list(student.values())}")
+print(f"所有键值对：{list(student.items())}")
+
+
+# 字典长度
+print(f"字典长度：{len(student)}")
+
+# 3.遍历字典
+print("\n3. 遍历字典：")
+
+print("遍历键：")
+for key in student:
+    print(f"{key}:{student[key]}")
+
+print("遍历键值对：")
+for key, value in student.items():
+    print(f" {key}: {value}")
+
+print("遍历值：")
+for value in student.values():
+    print(f"值：{value}")
+
+# 4.字典推导式
+print("\ns. 字典推导式：")
+
+# 创建平方字典
+numbers = [1, 2, 3, 4, 5]
+squares = {x : x**2 for x in numbers}
+print(f"平方字典：{squares}")
+
+# 过滤字典
+student_scores = {"zz": 100, "guiigui": 89, "hh": 98}
+good_scores = {name: score for name, score in student_scores.items() if score >= 90}
+print(f"高分学生：{good_scores}")
+
+# 5.字典合并
+print("\n5. 字典合并：")
+
+dict1 = {"a": 1, "b": 2}
+dict2 = {"c": 3, "d": 10}
+
+# 法一 update()
+dict1.update(dict2)
+print(f"使用update合并：{dict1}")
+
+# 法2字典拆包
+dict1 = {"a": 1, "b": 2}
+merged = {**dict1, **dict2}
+print(f"使用拆包合并：{merged}")
+
+# 法3：管道操作符
+merged = dict1 | dict2
 
 
 
@@ -168,7 +199,7 @@ print(f"filter函数: {sum_divisible_by_three_filter(test_data)}")
 第9周总结
 学习内容:做笨方法学习python的习题，巩固基础
 
-完成情况: 5/7天
+完成情况: 6/7天
 
 收获: 临近期末考试，百忙之中还在坚持写，复习了if else 和函数
 最后更新: 2025年12月
