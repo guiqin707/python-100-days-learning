@@ -6,10 +6,10 @@
 
 | 项目 | 进度 |
 |------|------|
-| **总天数** | 81/100 天 |
+| **总天数** | 82/100 天 |
 | **开始日期** | 2025年9月 |
-| **代码文件数** | 54个 |
-| **提交次数** | 54 次 |
+| **代码文件数** | 55个 |
+| **提交次数** | 55 次 |
 
 ## 🗓️ 每日学习记录
 
@@ -70,10 +70,11 @@
 - **Day 79**: 练习23
 - **Day 80**: 练习24
 - **Day 81**: 练习25
+- **Day 82**: 练习26
 - 
 
 ### 🔄 进行中
-- **Day 82**: 练习26
+- **Day 83**: 练习27
 ### ⏳ 待学习
 - 面向对象编程
 - 网络请求
@@ -103,103 +104,58 @@ https://space.bilibili.com/3546597933714079?spm_id_from=333.788.upinfo.head.clic
 
 ## 💻 今日代码示例
 
-print("=== 字典基础练习 ===")
+print("=== 三种获取数据的方式 ===")
+print()
 
-# 1.创建不同类型的字典
-print("\n. 创建不同类型的字典：")
+# 1.字典方式
+print("1. 字典（Dictionary）:")
+mystuff_dict = {'apple': "I AM APPLES!", 'tangerine': "living reflection of a dream"}
+print(f"字典获取：mystuff_dict['apple'] = {mystuff_dict['apple']}")
+print()
 
-# 字典串键
-student = {"name": "guigui", "age": 18, "major": "生物学"}
-print(f"学生信息：{student}")
+# 2.模块方式
+print("2. 模块（Module):")
+print("   假设有一个mystuff.py 文件， 内容如下：")
+print("    #mystuff.py")
+print("   def apple():")
+print("        print('I AM APPLES!')")
+print("    tangerine = 'Living reflection of a dream'")
+print()
+print("    使用方式：")
+print("    import mystuff")
+print("     mystuff.apple()")
+print("     print(mystuff.tangerine)")
+print()
 
-# 整数键
-phonebook = {1001:"李四", 1002: "zz"}
-print(f"电话簿：{phonebook}")
+# 3.类方式
+print("3. 类 (Class):")
+class Mystuff:
+    def __init__(self):
+        self.tangerine = "And now a thousand years between"
 
-# 混合类型键
-mixed_dict = {"name": "huihui", 123: "学号", 3.14: "圆周率", True: "布尔值"}
+    def apple(self):
+        print("I AM APPLES!")
 
-# 嵌套字典
-company = {
-    "name": "科技公司",
-    "departments": {
-        "engineering": ["guigui", "zz"],
-        "sales": ["100w", "500w"],
-        "hr": ["hh", "nn"]
-    },
-    "location": "Shanghai"
-}
-print(f"公司信息：{company}")
+thing = Mystuff()
+thing.apple()
+print(f"类获取： thing.tangerine = {thing.tangerine}")
+print()
 
-# 2.字典操作
-print("\n2. 字典操作：")
+# 比较相似之处
 
-# 检查键是否存在
-print(f"'name' 在 student中吗？{'name' in student}")
-print(f"'salary' 在 student 中吗？{'salary' in student}")
-
-# 获取所有键值
-print(f"所有键：{list(student.keys())}")
-print(f"所有值：{list(student.values())}")
-print(f"所有键值对：{list(student.items())}")
-
-
-# 字典长度
-print(f"字典长度：{len(student)}")
-
-# 3.遍历字典
-print("\n3. 遍历字典：")
-
-print("遍历键：")
-for key in student:
-    print(f"{key}:{student[key]}")
-
-print("遍历键值对：")
-for key, value in student.items():
-    print(f" {key}: {value}")
-
-print("遍历值：")
-for value in student.values():
-    print(f"值：{value}")
-
-# 4.字典推导式
-print("\ns. 字典推导式：")
-
-# 创建平方字典
-numbers = [1, 2, 3, 4, 5]
-squares = {x : x**2 for x in numbers}
-print(f"平方字典：{squares}")
-
-# 过滤字典
-student_scores = {"zz": 100, "guiigui": 89, "hh": 98}
-good_scores = {name: score for name, score in student_scores.items() if score >= 90}
-print(f"高分学生：{good_scores}")
-
-# 5.字典合并
-print("\n5. 字典合并：")
-
-dict1 = {"a": 1, "b": 2}
-dict2 = {"c": 3, "d": 10}
-
-# 法一 update()
-dict1.update(dict2)
-print(f"使用update合并：{dict1}")
-
-# 法2字典拆包
-dict1 = {"a": 1, "b": 2}
-merged = {**dict1, **dict2}
-print(f"使用拆包合并：{merged}")
-
-# 法3：管道操作符
-merged = dict1 | dict2
+print("=== 相似之处 ===")
+print("这方式都提供了一种从’容器‘中获取数据的方式：")
+print("1. 字典：通过键获取值")
+print("2.模块：通过属性名获取")
+print("3. 类：通过实例属性获取")
 
 
 
 📈 每周总结
-第9周总结
+第10周总结
 学习内容:做笨方法学习python的习题，巩固基础
 
-完成情况: 6/7天
+完成情况: 1/7天
 
 收获: 临近期末考试，百忙之中还在坚持写，复习了if else 和函数
 最后更新: 2025年12月
