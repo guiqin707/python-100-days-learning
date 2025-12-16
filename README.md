@@ -6,10 +6,10 @@
 
 | 项目 | 进度 |
 |------|------|
-| **总天数** | 82/100 天 |
+| **总天数** | 83/100 天 |
 | **开始日期** | 2025年9月 |
-| **代码文件数** | 55个 |
-| **提交次数** | 55 次 |
+| **代码文件数** | 56个 |
+| **提交次数** | 56 次 |
 
 ## 🗓️ 每日学习记录
 
@@ -71,10 +71,11 @@
 - **Day 80**: 练习24
 - **Day 81**: 练习25
 - **Day 82**: 练习26
+- **Day 83**: 练习27
 - 
 
 ### 🔄 进行中
-- **Day 83**: 练习27
+- **Day 84**: 练习28
 ### ⏳ 待学习
 - 面向对象编程
 - 网络请求
@@ -104,58 +105,106 @@ https://space.bilibili.com/3546597933714079?spm_id_from=333.788.upinfo.head.clic
 
 ## 💻 今日代码示例
 
-print("=== 三种获取数据的方式 ===")
-print()
+import random
+from urllib.request import urlopen
+import sys
 
-# 1.字典方式
-print("1. 字典（Dictionary）:")
-mystuff_dict = {'apple': "I AM APPLES!", 'tangerine': "living reflection of a dream"}
-print(f"字典获取：mystuff_dict['apple'] = {mystuff_dict['apple']}")
-print()
+WORD_URL = "http://learncodethehardway.org/words.txt"
+WORDS = []
 
-# 2.模块方式
-print("2. 模块（Module):")
-print("   假设有一个mystuff.py 文件， 内容如下：")
-print("    #mystuff.py")
-print("   def apple():")
-print("        print('I AM APPLES!')")
-print("    tangerine = 'Living reflection of a dream'")
-print()
-print("    使用方式：")
-print("    import mystuff")
-print("     mystuff.apple()")
-print("     print(mystuff.tangerine)")
-print()
+PHRASES = {
+    "class %%%(%%%):":
+        "Make a class named %%% that is-a %%%.",
+    "class %%%(object):\n\tdef __init__(self, ***)":
+        "class %%% has-a __init__ that takes self and *** parameters.",
+    "class %%%(object):\n\tdef ***(self, @@@)":
+        "class %%% has-a function named *** that takes self and @@@ parameters.",
+    "*** = %%%()":
+        "Set *** to an instance of class %%%.",
+    "***.***(@@@)":
+        "From *** get the *** function, and call it with parameters self, @@@.",
+    "***.*** = '***'":
+        "From *** get the *** attribute and set it to '***'."
+}
 
-# 3.类方式
-print("3. 类 (Class):")
-class Mystuff:
-    def __init__(self):
-        self.tangerine = "And now a thousand years between"
+# do they want to drill phrases first
+if len(sys.argv) == 2 and sys.argv[1] == "english":
+    PHRASE_FIRST = True
+else:
+    PHRASE_FIRST = False
 
-    def apple(self):
-        print("I AM APPLES!")
+# load up the words from the website
+try:
+    for word in urlopen(WORD_URL).readlines():
+        WORDS.append(word.strip().decode('utf-8'))
+except Exception as e:
+    print(f"无法从网站加载单词，错误：{e}")
+    print("使用本地单词列表...")
+    # 提供一个备用的单词列表
+    WORDS = ["apple", "bird", "car", "dog", "egg", "fish", "goat", "hat",
+             "ice", "jam", "kite", "lion", "mouse", "nest", "owl", "pig",
+             "queen", "rat", "snake", "tiger", "umbrella", "van", "whale",
+             "xray", "yak", "zebra", "cat", "bat", "ball", "book", "pen"]
 
-thing = Mystuff()
-thing.apple()
-print(f"类获取： thing.tangerine = {thing.tangerine}")
-print()
 
-# 比较相似之处
+def convert(snippet, phrase):
+    class_names = [w.capitalize() for w in
+                   random.sample(WORDS, snippet.count("%%%"))]
+    other_names = random.sample(WORDS, snippet.count("***"))
+    results = []
+    param_names = []
 
-print("=== 相似之处 ===")
-print("这方式都提供了一种从’容器‘中获取数据的方式：")
-print("1. 字典：通过键获取值")
-print("2.模块：通过属性名获取")
-print("3. 类：通过实例属性获取")
+    for i in range(0, snippet.count("@@@")):
+        param_count = random.randint(1, 3)
+        param_names.append(', '.join(random.sample(WORDS, param_count)))
 
+    for sentence in snippet, phrase:
+        result = sentence[:]
+
+        # fake class names
+        for word in class_names:
+            result = result.replace("%%%", word, 1)
+
+        # fake other names
+        for word in other_names:
+            result = result.replace("***", word, 1)
+
+        # fake parameter lists
+        for word in param_names:
+            result = result.replace("@@@", word, 1)
+
+        results.append(result)
+    return results
+
+
+# keep going until they hit CTRL-D
+try:
+    while True:
+        snippets = list(PHRASES.keys())
+        random.shuffle(snippets)
+
+        for snippet in snippets:
+            phrase = PHRASES[snippet]
+            question, answer = convert(snippet, phrase)
+            if PHRASE_FIRST:
+                question, answer = answer, question
+
+            print(question)
+
+            input("> ")
+            print(f"ANSWER: {answer}\n\n")
+
+except EOFError:
+    print("\nBye")
+except KeyboardInterrupt:
+    print("\nBye")
 
 
 📈 每周总结
 第10周总结
 学习内容:做笨方法学习python的习题，巩固基础
 
-完成情况: 1/7天
+完成情况: 2/7天
 
 收获: 临近期末考试，百忙之中还在坚持写，复习了if else 和函数
 最后更新: 2025年12月
