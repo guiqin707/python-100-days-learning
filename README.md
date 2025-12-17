@@ -6,10 +6,10 @@
 
 | 项目 | 进度 |
 |------|------|
-| **总天数** | 83/100 天 |
+| **总天数** | 84/100 天 |
 | **开始日期** | 2025年9月 |
-| **代码文件数** | 56个 |
-| **提交次数** | 56 次 |
+| **代码文件数** | 57个 |
+| **提交次数** | 57 次 |
 
 ## 🗓️ 每日学习记录
 
@@ -72,10 +72,11 @@
 - **Day 81**: 练习25
 - **Day 82**: 练习26
 - **Day 83**: 练习27
+- **Day 84**: 练习28
 - 
 
 ### 🔄 进行中
-- **Day 84**: 练习28
+- **Day 85**: 练习29
 ### ⏳ 待学习
 - 面向对象编程
 - 网络请求
@@ -105,106 +106,70 @@ https://space.bilibili.com/3546597933714079?spm_id_from=333.788.upinfo.head.clic
 
 ## 💻 今日代码示例
 
-import random
-from urllib.request import urlopen
-import sys
+class Animal(object):
+    pass
 
-WORD_URL = "http://learncodethehardway.org/words.txt"
-WORDS = []
+class Dog(Animal):
 
-PHRASES = {
-    "class %%%(%%%):":
-        "Make a class named %%% that is-a %%%.",
-    "class %%%(object):\n\tdef __init__(self, ***)":
-        "class %%% has-a __init__ that takes self and *** parameters.",
-    "class %%%(object):\n\tdef ***(self, @@@)":
-        "class %%% has-a function named *** that takes self and @@@ parameters.",
-    "*** = %%%()":
-        "Set *** to an instance of class %%%.",
-    "***.***(@@@)":
-        "From *** get the *** function, and call it with parameters self, @@@.",
-    "***.*** = '***'":
-        "From *** get the *** attribute and set it to '***'."
-}
+    def __init__(self, name):
+        #Dog has -a name
+        self.name = name
 
-# do they want to drill phrases first
-if len(sys.argv) == 2 and sys.argv[1] == "english":
-    PHRASE_FIRST = True
-else:
-    PHRASE_FIRST = False
+class Cat(Animal):
 
-# load up the words from the website
-try:
-    for word in urlopen(WORD_URL).readlines():
-        WORDS.append(word.strip().decode('utf-8'))
-except Exception as e:
-    print(f"无法从网站加载单词，错误：{e}")
-    print("使用本地单词列表...")
-    # 提供一个备用的单词列表
-    WORDS = ["apple", "bird", "car", "dog", "egg", "fish", "goat", "hat",
-             "ice", "jam", "kite", "lion", "mouse", "nest", "owl", "pig",
-             "queen", "rat", "snake", "tiger", "umbrella", "van", "whale",
-             "xray", "yak", "zebra", "cat", "bat", "ball", "book", "pen"]
+    def __init__(self, name):
+        ##Cat has-a name
+        self.name = name
 
+class Person(object):
 
-def convert(snippet, phrase):
-    class_names = [w.capitalize() for w in
-                   random.sample(WORDS, snippet.count("%%%"))]
-    other_names = random.sample(WORDS, snippet.count("***"))
-    results = []
-    param_names = []
+    def __init__(self, name):
+        ## Person has-a name
+        self.name = name
 
-    for i in range(0, snippet.count("@@@")):
-        param_count = random.randint(1, 3)
-        param_names.append(', '.join(random.sample(WORDS, param_count)))
+        ##person has-a pet of some kind
+        self.pet = None
 
-    for sentence in snippet, phrase:
-        result = sentence[:]
+class Employee(Person):
+    def __init__(self, name, salary):
+    #调用父类Person的__init__方法
+        super(Employee,self).__init__(name)
+    ##Employee has-a salary
+        self.salary = salary
 
-        # fake class names
-        for word in class_names:
-            result = result.replace("%%%", word, 1)
+class Fish(object):
+    pass
 
-        # fake other names
-        for word in other_names:
-            result = result.replace("***", word, 1)
+class Salmon(Fish):
+    pass
 
-        # fake parameter lists
-        for word in param_names:
-            result = result.replace("@@@", word, 1)
+class Halibut(Fish):
+    pass
 
-        results.append(result)
-    return results
+rover = Dog("Rover")
 
+satan = Cat("Satan")
 
-# keep going until they hit CTRL-D
-try:
-    while True:
-        snippets = list(PHRASES.keys())
-        random.shuffle(snippets)
+mary = Person("Mary")
 
-        for snippet in snippets:
-            phrase = PHRASES[snippet]
-            question, answer = convert(snippet, phrase)
-            if PHRASE_FIRST:
-                question, answer = answer, question
+mary.pet = satan
 
-            print(question)
+frank = Employee("Frank",20000)
 
-            input("> ")
-            print(f"ANSWER: {answer}\n\n")
+frank.pet = rover
 
-except EOFError:
-    print("\nBye")
-except KeyboardInterrupt:
-    print("\nBye")
+flipper = Fish()
+
+crouse = Salmon()
+
+harry = Halibut()
 
 
 📈 每周总结
 第10周总结
 学习内容:做笨方法学习python的习题，巩固基础
 
-完成情况: 2/7天
+完成情况: 3/7天
 
 收获: 临近期末考试，百忙之中还在坚持写，复习了if else 和函数
 最后更新: 2025年12月
