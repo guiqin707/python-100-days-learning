@@ -1,0 +1,49 @@
+import pandas as pd
+
+# print(pd.__version__)
+#
+# data = [100, 102, 103, 200, 203]
+# series = pd.Series(data,index = ['A', 'B', 'C', 'D', 'E'])
+# print(series[series >= 200])
+#
+# calories = {"Day 1": 1800, "Day 2": 1980, "Day 3": 1750}
+#
+# series = pd.Series(calories)
+# print(series[series >= 1800])
+
+data = {'name': ['Spongebob', 'Patrick', 'Squidward'],
+        'age': [20, 35, 40],
+}
+
+df = pd.DataFrame(data, index=['Employee 1 ', 'Employee 2 ', 'Employee 3 '])
+print(df)
+
+
+# add a new column
+df['Job'] = ['Cook', 'N/A', 'Cashier']
+print(df)
+
+# add new rows
+new_rows = pd.DataFrame([{'name': "sandy", "age": 20, 'Job': "Engineer"},
+                            {'name': "Eugene", "age": 60, 'Job': "Manager"}],
+                       index=['Employee 4', 'Employee 5'])
+df = pd.concat([df, new_rows])
+print(df)
+
+# df = pd.read_csv('D:\Python\PythonProject8\.venv\data\data.csv')
+# df = pd.read_json('D:\Python\PythonProject8\.venv\data\data.json')
+
+# SELECTION BY COLUMN
+# print(df['Name'])#只打印前后5行
+# print(df['Name'].to_string())#全部打印，慎重！！！
+# print(df[['Name', 'Height']])
+
+# SELECTION BY ROW/S
+# print(df.loc[0])
+#
+# df = pd.read_csv("data.csv", index_col="Name")
+# print(df.loc['名字'])
+print(df.loc['名字', ['name', 'age', 'Job']])#只打印这个人的这3个属性
+print(df.loc['名字':'另一个名字', ['name', 'age', 'Job']])#切片，打印从这个人到另一个人的这三个属性
+print(df.iloc[0:11:2, 0:3])#以步长为2，打印10行,前3列信息
+
