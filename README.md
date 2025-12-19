@@ -6,10 +6,10 @@
 
 | 项目 | 进度 |
 |------|------|
-| **总天数** | 84/100 天 |
+| **总天数** | 85/100 天 |
 | **开始日期** | 2025年9月 |
-| **代码文件数** | 57个 |
-| **提交次数** | 57 次 |
+| **代码文件数** | 58个 |
+| **提交次数** | 58 次 |
 
 ## 🗓️ 每日学习记录
 
@@ -73,10 +73,11 @@
 - **Day 82**: 练习26
 - **Day 83**: 练习27
 - **Day 84**: 练习28
+- **Day 85**: pandas1
 - 
 
 ### 🔄 进行中
-- **Day 85**: 练习29
+- **Day 86**: pandas2
 ### ⏳ 待学习
 - 面向对象编程
 - 网络请求
@@ -106,70 +107,62 @@ https://space.bilibili.com/3546597933714079?spm_id_from=333.788.upinfo.head.clic
 
 ## 💻 今日代码示例
 
-class Animal(object):
-    pass
+import pandas as pd
 
-class Dog(Animal):
+# print(pd.__version__)
+#
+# data = [100, 102, 103, 200, 203]
+# series = pd.Series(data,index = ['A', 'B', 'C', 'D', 'E'])
+# print(series[series >= 200])
+#
+# calories = {"Day 1": 1800, "Day 2": 1980, "Day 3": 1750}
+#
+# series = pd.Series(calories)
+# print(series[series >= 1800])
 
-    def __init__(self, name):
-        #Dog has -a name
-        self.name = name
+data = {'name': ['Spongebob', 'Patrick', 'Squidward'],
+        'age': [20, 35, 40],
+}
 
-class Cat(Animal):
+df = pd.DataFrame(data, index=['Employee 1 ', 'Employee 2 ', 'Employee 3 '])
+print(df)
 
-    def __init__(self, name):
-        ##Cat has-a name
-        self.name = name
 
-class Person(object):
+# add a new column
+df['Job'] = ['Cook', 'N/A', 'Cashier']
+print(df)
 
-    def __init__(self, name):
-        ## Person has-a name
-        self.name = name
+# add new rows
+new_rows = pd.DataFrame([{'name': "sandy", "age": 20, 'Job': "Engineer"},
+                            {'name': "Eugene", "age": 60, 'Job': "Manager"}],
+                       index=['Employee 4', 'Employee 5'])
+df = pd.concat([df, new_rows])
+print(df)
 
-        ##person has-a pet of some kind
-        self.pet = None
+# df = pd.read_csv('D:\Python\PythonProject8\.venv\data\data.csv')
+# df = pd.read_json('D:\Python\PythonProject8\.venv\data\data.json')
 
-class Employee(Person):
-    def __init__(self, name, salary):
-    #调用父类Person的__init__方法
-        super(Employee,self).__init__(name)
-    ##Employee has-a salary
-        self.salary = salary
+# SELECTION BY COLUMN
+# print(df['Name'])#只打印前后5行
+# print(df['Name'].to_string())#全部打印，慎重！！！
+# print(df[['Name', 'Height']])
 
-class Fish(object):
-    pass
+# SELECTION BY ROW/S
+# print(df.loc[0])
+#
+# df = pd.read_csv("data.csv", index_col="Name")
+# print(df.loc['名字'])
+print(df.loc['名字', ['name', 'age', 'Job']])#只打印这个人的这3个属性
+print(df.loc['名字':'另一个名字', ['name', 'age', 'Job']])#切片，打印从这个人到另一个人的这三个属性
+print(df.iloc[0:11:2, 0:3])#以步长为2，打印10行,前3列信息
 
-class Salmon(Fish):
-    pass
-
-class Halibut(Fish):
-    pass
-
-rover = Dog("Rover")
-
-satan = Cat("Satan")
-
-mary = Person("Mary")
-
-mary.pet = satan
-
-frank = Employee("Frank",20000)
-
-frank.pet = rover
-
-flipper = Fish()
-
-crouse = Salmon()
-
-harry = Halibut()
 
 
 📈 每周总结
 第10周总结
 学习内容:做笨方法学习python的习题，巩固基础
 
-完成情况: 3/7天
+完成情况: 4/7天
 
 收获: 临近期末考试，百忙之中还在坚持写，复习了if else 和函数
 最后更新: 2025年12月
