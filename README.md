@@ -6,10 +6,10 @@
 
 | 项目 | 进度 |
 |------|------|
-| **总天数** | 85/100 天 |
+| **总天数** | 86/100 天 |
 | **开始日期** | 2025年9月 |
-| **代码文件数** | 58个 |
-| **提交次数** | 58 次 |
+| **代码文件数** | 59个 |
+| **提交次数** | 59 次 |
 
 ## 🗓️ 每日学习记录
 
@@ -74,10 +74,11 @@
 - **Day 83**: 练习27
 - **Day 84**: 练习28
 - **Day 85**: pandas1
+- **Day 86**: pandas2
 - 
 
 ### 🔄 进行中
-- **Day 86**: pandas2
+- **Day 87**: numby1
 ### ⏳ 待学习
 - 面向对象编程
 - 网络请求
@@ -107,54 +108,108 @@ https://space.bilibili.com/3546597933714079?spm_id_from=333.788.upinfo.head.clic
 
 ## 💻 今日代码示例
 
-import pandas as pd
+i# 筛选
+xx_xx = df[df['name'] >= 100]
+# 逻辑运算符
 
-# print(pd.__version__)
-#
-# data = [100, 102, 103, 200, 203]
-# series = pd.Series(data,index = ['A', 'B', 'C', 'D', 'E'])
-# print(series[series >= 200])
-#
-# calories = {"Day 1": 1800, "Day 2": 1980, "Day 3": 1750}
-#
-# series = pd.Series(calories)
-# print(series[series >= 1800])
+xx_xx = df[(df['name'] >= 100) & (df['name'] < 101)]#和
+xx_xx = df[(df['name1'] >= 100)|(df['name1'] < 101)]#或
 
-data = {'name': ['Spongebob', 'Patrick', 'Squidward'],
-        'age': [20, 35, 40],
+
+# 聚合函数
+# 对整个列
+df = pd.read_csv("data.csv")
+print(df.mean(numeric_only=True))#求均值
+print(df.sum(numeric_only=True))#求每列总和
+print(df.min(numeric_only=True))
+print(df.max(numeric_only=True))
+print(df.count())#不算空值
+
+
+# 对单个列
+
+print(df['name'].mean())#求均值
+print(df['name'].sum())#求每列总和
+print(df['name'].min())
+print(df['name'].max())
+print(df['name'].count())
+
+# groupby
+
+group = df.groupby('name')
+print(group['xx'].mean())
+print(group['xx'].sum())
+print(group['xx'].min())
+print(group['xx'].max())
+print(group['xx'].count())
+
+# 示例数据
+data = {
+    '城市': ['北京', '上海', '北京', '上海', '广州', '广州'],
+    '月份': [1, 1, 2, 2, 1, 2],
+    '销售额': [100, 150, 200, 250, 300, 350],
+    '产品': ['A', 'B', 'A', 'B', 'A', 'B']
 }
+df = pd.DataFrame(data)
 
-df = pd.DataFrame(data, index=['Employee 1 ', 'Employee 2 ', 'Employee 3 '])
-print(df)
+# 按城市分组
+grouped = df.groupby('城市')
 
+# 基本聚合
+df.groupby('城市')['销售额'].sum()
+# 输出：
+# 北京    300
+# 上海    400
+# 广州    650
 
-# add a new column
-df['Job'] = ['Cook', 'N/A', 'Cashier']
-print(df)
+# 多列聚合
+df.groupby('城市').agg({
+    '销售额': ['sum', 'mean', 'max'],
+    '月份': 'count'
+})
 
-# add new rows
-new_rows = pd.DataFrame([{'name': "sandy", "age": 20, 'Job': "Engineer"},
-                            {'name': "Eugene", "age": 60, 'Job': "Manager"}],
-                       index=['Employee 4', 'Employee 5'])
-df = pd.concat([df, new_rows])
-print(df)
-
-# df = pd.read_csv('D:\Python\PythonProject8\.venv\data\data.csv')
-# df = pd.read_json('D:\Python\PythonProject8\.venv\data\data.json')
-
-# SELECTION BY COLUMN
-# print(df['Name'])#只打印前后5行
-# print(df['Name'].to_string())#全部打印，慎重！！！
-# print(df[['Name', 'Height']])
-
-# SELECTION BY ROW/S
-# print(df.loc[0])
+# sum()：求和
+# 
+# mean()：平均值
 #
-# df = pd.read_csv("data.csv", index_col="Name")
-# print(df.loc['名字'])
-print(df.loc['名字', ['name', 'age', 'Job']])#只打印这个人的这3个属性
-print(df.loc['名字':'另一个名字', ['name', 'age', 'Job']])#切片，打印从这个人到另一个人的这三个属性
-print(df.iloc[0:11:2, 0:3])#以步长为2，打印10行,前3列信息
+# count()：计数
+#
+# std()：标准差
+#
+# var()：方差
+#
+# min()/max()：最小值/最大值
+#
+# first()/last()：第一个/最后一个值
+#
+# describe()：描述性统计
+
+
+
+
+
+#数据清理
+# data_clean
+df = pd.read_csv("data.csv")
+# 1.Drop irrelevant columns   删除不相关的列
+
+df = df.drop(columns=['Unnamed: 0'])
+
+# 2.Handle missing data   处理缺失数据
+df = df.dropna(sunset=['数据缺失的列名'])#直接清理
+df = df.fillna({'数据缺失的列名': "None"})#用None代替
+
+# 3. Fix inconsistent values   修正不一致的值
+df['列名'] = df['列名'].replace({'Grass': 'GRASS',
+                                 'Fire': 'FIRE'})
+# 4.Standardize text   文本标准化
+df['name'] = df['name'].str.lower()#文本小写
+
+# 5.Fix data types     修理和更改数据类型
+df['想改的列名'] = df['想改的列名'].astype(bool)#改成布尔
+
+# 6. Remove duplicate values    清除重复值
+df = df.drop_duplicates()
 
 
 
@@ -162,7 +217,7 @@ print(df.iloc[0:11:2, 0:3])#以步长为2，打印10行,前3列信息
 第10周总结
 学习内容:做笨方法学习python的习题，巩固基础
 
-完成情况: 4/7天
+完成情况: 5/7天
 
 收获: 临近期末考试，百忙之中还在坚持写，复习了if else 和函数
 最后更新: 2025年12月
