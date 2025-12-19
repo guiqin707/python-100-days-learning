@@ -1,0 +1,102 @@
+# 筛选
+xx_xx = df[df['name'] >= 100]
+# 逻辑运算符
+
+xx_xx = df[(df['name'] >= 100) & (df['name'] < 101)]#和
+xx_xx = df[(df['name1'] >= 100)|(df['name1'] < 101)]#或
+
+
+# 聚合函数
+# 对整个列
+df = pd.read_csv("data.csv")
+print(df.mean(numeric_only=True))#求均值
+print(df.sum(numeric_only=True))#求每列总和
+print(df.min(numeric_only=True))
+print(df.max(numeric_only=True))
+print(df.count())#不算空值
+
+
+# 对单个列
+
+print(df['name'].mean())#求均值
+print(df['name'].sum())#求每列总和
+print(df['name'].min())
+print(df['name'].max())
+print(df['name'].count())
+
+# groupby
+
+group = df.groupby('name')
+print(group['xx'].mean())
+print(group['xx'].sum())
+print(group['xx'].min())
+print(group['xx'].max())
+print(group['xx'].count())
+
+# 示例数据
+data = {
+    '城市': ['北京', '上海', '北京', '上海', '广州', '广州'],
+    '月份': [1, 1, 2, 2, 1, 2],
+    '销售额': [100, 150, 200, 250, 300, 350],
+    '产品': ['A', 'B', 'A', 'B', 'A', 'B']
+}
+df = pd.DataFrame(data)
+
+# 按城市分组
+grouped = df.groupby('城市')
+
+# 基本聚合
+df.groupby('城市')['销售额'].sum()
+# 输出：
+# 北京    300
+# 上海    400
+# 广州    650
+
+# 多列聚合
+df.groupby('城市').agg({
+    '销售额': ['sum', 'mean', 'max'],
+    '月份': 'count'
+})
+
+# sum()：求和
+# 
+# mean()：平均值
+#
+# count()：计数
+#
+# std()：标准差
+#
+# var()：方差
+#
+# min()/max()：最小值/最大值
+#
+# first()/last()：第一个/最后一个值
+#
+# describe()：描述性统计
+
+
+
+
+
+#数据清理
+# data_clean
+df = pd.read_csv("data.csv")
+# 1.Drop irrelevant columns   删除不相关的列
+
+df = df.drop(columns=['Unnamed: 0'])
+
+# 2.Handle missing data   处理缺失数据
+df = df.dropna(sunset=['数据缺失的列名'])#直接清理
+df = df.fillna({'数据缺失的列名': "None"})#用None代替
+
+# 3. Fix inconsistent values   修正不一致的值
+df['列名'] = df['列名'].replace({'Grass': 'GRASS',
+                                 'Fire': 'FIRE'})
+# 4.Standardize text   文本标准化
+df['name'] = df['name'].str.lower()#文本小写
+
+# 5.Fix data types     修理和更改数据类型
+df['想改的列名'] = df['想改的列名'].astype(bool)#改成布尔
+
+# 6. Remove duplicate values    清除重复值
+df = df.drop_duplicates()
