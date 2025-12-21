@@ -6,10 +6,10 @@
 
 | 项目 | 进度 |
 |------|------|
-| **总天数** | 87/100 天 |
+| **总天数** | 88/100 天 |
 | **开始日期** | 2025年9月 |
-| **代码文件数** | 60个 |
-| **提交次数** | 60 次 |
+| **代码文件数** | 61个 |
+| **提交次数** | 61 次 |
 
 ## 🗓️ 每日学习记录
 
@@ -76,10 +76,11 @@
 - **Day 85**: pandas1
 - **Day 86**: pandas2
 - **Day 87**: numby1
+- **Day 88**: numby2
 - 
 
 ### 🔄 进行中
-- **Day 88**: numby2
+- **Day 89**: matplotlib
 ### ⏳ 待学习
 - 面向对象编程
 - 网络请求
@@ -109,72 +110,72 @@ https://space.bilibili.com/3546597933714079?spm_id_from=333.788.upinfo.head.clic
 
 ## 💻 今日代码示例
 
-import numpy as np
-# print(np.__version__)
+# 广播
+# 广播时，每个维度必须是1或相等，才能成功！
+# array1 = np.array([[1, 2, 3, 4, 5],
+#                    [6, 7, 8, 9, 10],
+#                    [11, 12, 13, 14, 15],
+#                    [16, 17, 18, 19, 20],
+#                    [21, 22, 23, 24, 25]])
+# array2 = np.array([[1], [2], [3], [4], [5]])
 #
-# array = np.array([1, 2, 3, 4, 5])
+# print(array1.shape)
+# print(array2.shape)
 #
-# array = array * 2
-# print(array)
+# print(array1 * array2)
 
 
-
-# array = np.array([[['A', 'B', 'C'], ['D', 'E', 'F'], ['G', 'H', 'I']],
-#                   [['J', 'K', 'L'], ['M', 'N', 'O'], ['P', 'Q', 'R']],
-#                   [['S', 'T', 'U'], ['V', 'W', 'X'], ['Y', 'Z', '_']]])
-# print(array.ndim)
-# print(array.shape)
-# print(array[0, 2, 0])
+# 聚合函数
+# array = np.array([[1, 2, 3, 4, 5],
+#                    [6, 7, 8, 9, 10]])
 #
-# word = array[2, 1, 1] + array[1, 1, 2]+ array[1, 2, 2] + array[0, 1, 0]
-# print(word)
-
-
-# 切片
-# array = np.array([[1, 2, 3, 4],
-#                   [5, 6, 7, 8],
-#                   [9, 10, 11, 12],
-#                   [13, 14, 15, 16]])
+# print(array.sum())
+# print(array.mean())
+# print(array.min())
+# print(array.max())
+# print(array.std())  #标准差
+# print(array.var())  #方差
+# print(array.argmax()) #求最大值所在的索引
 #
-# # array[start:end:step]
 #
-# print(array[:2, ::-2])
+# print(np.sum(array, axis=0)) #对行求和
+# print(np.sum(array, axis=1)) #对列求和
 
-# 标量算数
-array = np.array([1, 2, 3])
-print(array * 2)
-print(array + 1)
-print(array ** 5)
+# 过滤
 
-# 矢量数学
-array = np.array([1, 2.5, 3.99])
-print(np.sqrt(array))  #求根号
-print(np.round(array)) #四舍五入
-print(np.floor(array)) #向下舍入
-print(np.ceil(array)) #向上舍人
-# 求半径
-array = np.array([1, 2, 3])
-print(np.pi * array ** 2)
+# ages = np.array([[18, 19, 25, 21, 20, 40, 65, 46, 89],
+#                 [55, 16, 22, 58, 40, 66, 99, 75, 60]])
+#
+# teenage = ages[ages < 18]
+# print(teenage)
+#
+# adults = ages[(ages >= 18 )& (ages < 65)]
+# print(adults)
+#
+# seniors = ages[ages >= 65]
+# print(seniors)
+#
+# evens = ages[ages %2 == 0]
+# print(evens)
+# evens = ages[ages % 2 != 0]
+#
+# adults = np.where(ages >= 18 , ages, 0)
+# print(adults)
 
+# 随机
 
-# 元素运算
-array1 = np.array([1, 2, 3])
-array2 = np.array([4, 5, 6])
+RNG = np.random.default_rng(seed=1)
 
+print(RNG.integers(1, 101, size=(3, 3)))
 
-print(array1 + array2)
-print(array1 - array2)
-print(array1 * array2)
-print(array1 / array2)
-print(array1 ** array2)
+print(np.random.uniform(-1, 2, size=(3, 2)))
 
-
-# 比较运算
-scores = np.array([100, 56, 95, 66, 86])
-print(scores >= 60)
-
-scores[scores < 60] = 0
-print(scores)
+array = np.array([1, 2, 3, 4, 5])
+RNG.shuffle(array)
+print(array)
+names = np.array(['zz', 'guigui', 'mm', 'hh'])
+name = RNG.choice(names, size=(3, 3))
+print(name)
 
 
 
@@ -182,9 +183,9 @@ print(scores)
 第10周总结
 学习内容:做笨方法学习python的习题，巩固基础
 
-完成情况: 6/7天
+完成情况: 7/7天
 
-收获: 临近期末考试，百忙之中还在坚持写，复习了if else 和函数
+收获:学到了大概的pandas和numby
 最后更新: 2025年12月
 每日更新，持续进步中...
 
