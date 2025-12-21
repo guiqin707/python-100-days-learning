@@ -1,0 +1,66 @@
+# 广播
+# 广播时，每个维度必须是1或相等，才能成功！
+# array1 = np.array([[1, 2, 3, 4, 5],
+#                    [6, 7, 8, 9, 10],
+#                    [11, 12, 13, 14, 15],
+#                    [16, 17, 18, 19, 20],
+#                    [21, 22, 23, 24, 25]])
+# array2 = np.array([[1], [2], [3], [4], [5]])
+#
+# print(array1.shape)
+# print(array2.shape)
+#
+# print(array1 * array2)
+
+
+# 聚合函数
+# array = np.array([[1, 2, 3, 4, 5],
+#                    [6, 7, 8, 9, 10]])
+#
+# print(array.sum())
+# print(array.mean())
+# print(array.min())
+# print(array.max())
+# print(array.std())  #标准差
+# print(array.var())  #方差
+# print(array.argmax()) #求最大值所在的索引
+#
+#
+# print(np.sum(array, axis=0)) #对行求和
+# print(np.sum(array, axis=1)) #对列求和
+
+# 过滤
+
+# ages = np.array([[18, 19, 25, 21, 20, 40, 65, 46, 89],
+#                 [55, 16, 22, 58, 40, 66, 99, 75, 60]])
+#
+# teenage = ages[ages < 18]
+# print(teenage)
+#
+# adults = ages[(ages >= 18 )& (ages < 65)]
+# print(adults)
+#
+# seniors = ages[ages >= 65]
+# print(seniors)
+#
+# evens = ages[ages %2 == 0]
+# print(evens)
+# evens = ages[ages % 2 != 0]
+#
+# adults = np.where(ages >= 18 , ages, 0)
+# print(adults)
+
+# 随机
+
+RNG = np.random.default_rng(seed=1)
+
+print(RNG.integers(1, 101, size=(3, 3)))
+
+print(np.random.uniform(-1, 2, size=(3, 2)))
+
+array = np.array([1, 2, 3, 4, 5])
+RNG.shuffle(array)
+print(array)
+names = np.array(['zz', 'guigui', 'mm', 'hh'])
+name = RNG.choice(names, size=(3, 3))
+print(name)
