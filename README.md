@@ -6,10 +6,10 @@
 
 | 项目 | 进度 |
 |------|------|
-| **总天数** | 86/100 天 |
+| **总天数** | 87/100 天 |
 | **开始日期** | 2025年9月 |
-| **代码文件数** | 59个 |
-| **提交次数** | 59 次 |
+| **代码文件数** | 60个 |
+| **提交次数** | 60 次 |
 
 ## 🗓️ 每日学习记录
 
@@ -75,10 +75,11 @@
 - **Day 84**: 练习28
 - **Day 85**: pandas1
 - **Day 86**: pandas2
+- **Day 87**: numby1
 - 
 
 ### 🔄 进行中
-- **Day 87**: numby1
+- **Day 88**: numby2
 ### ⏳ 待学习
 - 面向对象编程
 - 网络请求
@@ -108,108 +109,72 @@ https://space.bilibili.com/3546597933714079?spm_id_from=333.788.upinfo.head.clic
 
 ## 💻 今日代码示例
 
-i# 筛选
-xx_xx = df[df['name'] >= 100]
-# 逻辑运算符
-
-xx_xx = df[(df['name'] >= 100) & (df['name'] < 101)]#和
-xx_xx = df[(df['name1'] >= 100)|(df['name1'] < 101)]#或
-
-
-# 聚合函数
-# 对整个列
-df = pd.read_csv("data.csv")
-print(df.mean(numeric_only=True))#求均值
-print(df.sum(numeric_only=True))#求每列总和
-print(df.min(numeric_only=True))
-print(df.max(numeric_only=True))
-print(df.count())#不算空值
-
-
-# 对单个列
-
-print(df['name'].mean())#求均值
-print(df['name'].sum())#求每列总和
-print(df['name'].min())
-print(df['name'].max())
-print(df['name'].count())
-
-# groupby
-
-group = df.groupby('name')
-print(group['xx'].mean())
-print(group['xx'].sum())
-print(group['xx'].min())
-print(group['xx'].max())
-print(group['xx'].count())
-
-# 示例数据
-data = {
-    '城市': ['北京', '上海', '北京', '上海', '广州', '广州'],
-    '月份': [1, 1, 2, 2, 1, 2],
-    '销售额': [100, 150, 200, 250, 300, 350],
-    '产品': ['A', 'B', 'A', 'B', 'A', 'B']
-}
-df = pd.DataFrame(data)
-
-# 按城市分组
-grouped = df.groupby('城市')
-
-# 基本聚合
-df.groupby('城市')['销售额'].sum()
-# 输出：
-# 北京    300
-# 上海    400
-# 广州    650
-
-# 多列聚合
-df.groupby('城市').agg({
-    '销售额': ['sum', 'mean', 'max'],
-    '月份': 'count'
-})
-
-# sum()：求和
-# 
-# mean()：平均值
+import numpy as np
+# print(np.__version__)
 #
-# count()：计数
+# array = np.array([1, 2, 3, 4, 5])
 #
-# std()：标准差
+# array = array * 2
+# print(array)
+
+
+
+# array = np.array([[['A', 'B', 'C'], ['D', 'E', 'F'], ['G', 'H', 'I']],
+#                   [['J', 'K', 'L'], ['M', 'N', 'O'], ['P', 'Q', 'R']],
+#                   [['S', 'T', 'U'], ['V', 'W', 'X'], ['Y', 'Z', '_']]])
+# print(array.ndim)
+# print(array.shape)
+# print(array[0, 2, 0])
 #
-# var()：方差
+# word = array[2, 1, 1] + array[1, 1, 2]+ array[1, 2, 2] + array[0, 1, 0]
+# print(word)
+
+
+# 切片
+# array = np.array([[1, 2, 3, 4],
+#                   [5, 6, 7, 8],
+#                   [9, 10, 11, 12],
+#                   [13, 14, 15, 16]])
 #
-# min()/max()：最小值/最大值
+# # array[start:end:step]
 #
-# first()/last()：第一个/最后一个值
-#
-# describe()：描述性统计
+# print(array[:2, ::-2])
+
+# 标量算数
+array = np.array([1, 2, 3])
+print(array * 2)
+print(array + 1)
+print(array ** 5)
+
+# 矢量数学
+array = np.array([1, 2.5, 3.99])
+print(np.sqrt(array))  #求根号
+print(np.round(array)) #四舍五入
+print(np.floor(array)) #向下舍入
+print(np.ceil(array)) #向上舍人
+# 求半径
+array = np.array([1, 2, 3])
+print(np.pi * array ** 2)
 
 
+# 元素运算
+array1 = np.array([1, 2, 3])
+array2 = np.array([4, 5, 6])
 
 
+print(array1 + array2)
+print(array1 - array2)
+print(array1 * array2)
+print(array1 / array2)
+print(array1 ** array2)
 
-#数据清理
-# data_clean
-df = pd.read_csv("data.csv")
-# 1.Drop irrelevant columns   删除不相关的列
 
-df = df.drop(columns=['Unnamed: 0'])
+# 比较运算
+scores = np.array([100, 56, 95, 66, 86])
+print(scores >= 60)
 
-# 2.Handle missing data   处理缺失数据
-df = df.dropna(sunset=['数据缺失的列名'])#直接清理
-df = df.fillna({'数据缺失的列名': "None"})#用None代替
-
-# 3. Fix inconsistent values   修正不一致的值
-df['列名'] = df['列名'].replace({'Grass': 'GRASS',
-                                 'Fire': 'FIRE'})
-# 4.Standardize text   文本标准化
-df['name'] = df['name'].str.lower()#文本小写
-
-# 5.Fix data types     修理和更改数据类型
-df['想改的列名'] = df['想改的列名'].astype(bool)#改成布尔
-
-# 6. Remove duplicate values    清除重复值
-df = df.drop_duplicates()
+scores[scores < 60] = 0
+print(scores)
 
 
 
@@ -217,7 +182,7 @@ df = df.drop_duplicates()
 第10周总结
 学习内容:做笨方法学习python的习题，巩固基础
 
-完成情况: 5/7天
+完成情况: 6/7天
 
 收获: 临近期末考试，百忙之中还在坚持写，复习了if else 和函数
 最后更新: 2025年12月
