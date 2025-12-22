@@ -1,0 +1,136 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
+# x = np.array([2023, 2024, 2025, 2026])
+# y1 = np.array([20, 23, 26, 30])
+# y2 = np.array([22, 21, 26, 18])
+# y3 = np.array([15, 18, 36, 20])
+# line_styles = dict(marker='.',
+#          markersize=30,
+#          markerfacecolor='#365083FF',
+#          # markeredgecolor='#B783AFFF',
+#          markeredgewidth=1,
+#          linestyle='solid',
+#          linewidth=4)
+# #B783AFFF
+# #F5A673FF
+# #FCDB72FF
+# plt.plot(x, y1, color='#B783AFFF', **line_styles)
+#
+#
+# plt.plot(x, y2, color='#F5A673FF', **line_styles)
+#
+#
+# plt.plot(x, y3, color='#FCDB72FF', **line_styles)
+#
+#
+# plt.title("Class sizes",
+#           fontsize=20,
+#           fontweight='bold',
+#           family='Times New Roman',
+#           color='#F5A673FF')
+#
+# plt.tick_params(axis='both')
+# plt.xlabel("Year",
+#            fontsize=20,
+#           fontweight='bold',
+#           family='Times New Roman',
+#           color='#F5A673FF')
+#
+# plt.ylabel("Student size",
+#            fontsize=20,
+#           fontweight='bold',
+#           family='Times New Roman',
+#           color='#F5A673FF')
+#
+# plt.xticks(x, family='Times New Roman')
+# plt.yticks(family='Times New Roman')
+# plt.show()
+#
+# plt.figure(figsize=(8, 5))
+# x = [0, 1, 2, 3, 4, 5]
+# y = [0, 1, 4, 9, 16, 25]
+#
+# plt.plot(x, y)
+
+# 设置x轴刻度的位置和标签
+# plt.xticks(
+#     ticks=[0, 2, 4],                    # 显示刻度的位置
+#     labels=['起点', '中间', '终点'],     # 对应位置的标签
+#     fontsize=14,                        # 字体大小
+#     fontweight='bold',                  # 字体粗细
+#     color='blue',                       # 标签颜色
+#     rotation=45,                        # 标签旋转角度
+#     fontname='Times New Roman'          # 字体名称
+# )
+#
+# plt.show()
+# 使用 plt.tick_params() 当你需要：
+# 调整刻度的样式（长度、宽度、颜色）
+# 控制刻度线的方向（向内/向外）
+# 批量设置x轴和y轴的样式
+# 控制刻度标签的显示位置
+#
+# 使用 plt.xticks() 当你需要：
+# 自定义刻度的位置
+# 修改刻度标签的文本内容
+# 设置具体的字体名称、样式
+# 旋转刻度标签
+
+
+# 设置网格线
+
+# x = np.array([1, 2, 3, 4, 5])
+# y = np.array([11, 21, 33, 41, 51])
+# plt.grid(axis='y', linestyle='--', linewidth=2,
+#          color='lightgray')
+#
+#
+# plt.plot(x, y)
+#
+# plt.show()
+
+
+# 条形图
+
+# categories = np.array(['apple', 'banana', 'cherry', 'orange'])
+# values = np.array([21, 22, 28, 15])
+#
+# plt.bar(categories, values, color='#365083FF')
+# plt.barh(categories, values, color='#365083FF')#水平条形图
+# plt.title("Fruit",
+#           family= 'Times New Roman',
+#           color = 'blue',
+#             fontsize=20 )
+#
+# plt.xlabel("Category", family= 'Times New Roman',
+#           color = 'blue',
+#             fontsize=20)
+# plt.ylabel("Value", family= 'Times New Roman',color = 'blue',
+#             fontsize=20)
+#
+# plt.xticks(family= 'Times New Roman')
+# plt.yticks(family= 'Times New Roman')
+
+# plt.show()
+
+
+# 饼图
+categories = np.array(['apple', 'banana', 'cherry', 'orange'])
+values = np.array([21, 22, 28, 15])
+colors = ['#365083FF', '#B783AFFF', '#F5A673FF', '#FCDB72FF']
+
+plt.pie(values, labels=categories,
+        autopct='%1.1f%%',
+        startangle=90,
+        colors=colors,
+        shadow=True,
+        explode=(0, 0, 0.1, 0),
+        textprops={
+            'fontname': 'Times New Roman',  # 设置字体
+            'fontsize': 12,  # 字体大小
+            'fontweight': 'normal',  # 字体粗细
+            'color': 'black'  # 字体颜色
+        } )
+
+plt.show()
