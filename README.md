@@ -6,10 +6,10 @@
 
 | 项目 | 进度 |
 |------|------|
-| **总天数** | 89/100 天 |
+| **总天数** | 90/100 天 |
 | **开始日期** | 2025年9月 |
-| **代码文件数** | 62个 |
-| **提交次数** | 62 次 |
+| **代码文件数** | 63个 |
+| **提交次数** | 63 次 |
 
 ## 🗓️ 每日学习记录
 
@@ -78,10 +78,11 @@
 - **Day 87**: numby1
 - **Day 88**: numby2
 - **Day 89**: matplotlib1
+- **Day 90**: matplotlib2
 - 
 
 ### 🔄 进行中
-- **Day 90**: matplotlib2
+- **Day 91**: 小项目
 ### ⏳ 待学习
 - 面向对象编程
 - 网络请求
@@ -111,141 +112,102 @@ https://space.bilibili.com/3546597933714079?spm_id_from=333.788.upinfo.head.clic
 
 ## 💻 今日代码示例
 
-import matplotlib.pyplot as plt
-import numpy as np
-
-# x = np.array([2023, 2024, 2025, 2026])
-# y1 = np.array([20, 23, 26, 30])
-# y2 = np.array([22, 21, 26, 18])
-# y3 = np.array([15, 18, 36, 20])
-# line_styles = dict(marker='.',
-#          markersize=30,
-#          markerfacecolor='#365083FF',
-#          # markeredgecolor='#B783AFFF',
-#          markeredgewidth=1,
-#          linestyle='solid',
-#          linewidth=4)
-# #B783AFFF
-# #F5A673FF
-# #FCDB72FF
-# plt.plot(x, y1, color='#B783AFFF', **line_styles)
+# 散点图
+# x1 = np.array([0, 1, 1, 2, 3, 4, 5, 5, 6, 7, 8])
+# y1 = np.array([65, 70, 71, 75, 84, 86, 89, 90, 92, 96, 98])
+#
+# x2 = np.array([0, 1, 2, 2, 3, 4, 5, 5, 6, 7, 8])
+# y2 = np.array([64, 70, 75, 75, 85, 87, 90, 91, 92, 97, 98])
+#
+# plt.scatter(x1, y1, color='blue',
+#             alpha=0.5,
+#             s= 200,
+#             label='Class A')
 #
 #
-# plt.plot(x, y2, color='#F5A673FF', **line_styles)
+# plt.scatter(x2, y2, color='green',
+#             alpha=0.5,
+#             s= 200,
+#             label='Class B')
 #
+# plt.xlabel('Hours')
+# plt.ylabel('scores')
 #
-# plt.plot(x, y3, color='#FCDB72FF', **line_styles)
+# plt.title('grade')
 #
-#
-# plt.title("Class sizes",
-#           fontsize=20,
-#           fontweight='bold',
-#           family='Times New Roman',
-#           color='#F5A673FF')
-#
-# plt.tick_params(axis='both')
-# plt.xlabel("Year",
-#            fontsize=20,
-#           fontweight='bold',
-#           family='Times New Roman',
-#           color='#F5A673FF')
-#
-# plt.ylabel("Student size",
-#            fontsize=20,
-#           fontweight='bold',
-#           family='Times New Roman',
-#           color='#F5A673FF')
-#
-# plt.xticks(x, family='Times New Roman')
-# plt.yticks(family='Times New Roman')
+# plt.legend()
 # plt.show()
-#
-# plt.figure(figsize=(8, 5))
-# x = [0, 1, 2, 3, 4, 5]
-# y = [0, 1, 4, 9, 16, 25]
-#
-# plt.plot(x, y)
-
-# 设置x轴刻度的位置和标签
-# plt.xticks(
-#     ticks=[0, 2, 4],                    # 显示刻度的位置
-#     labels=['起点', '中间', '终点'],     # 对应位置的标签
-#     fontsize=14,                        # 字体大小
-#     fontweight='bold',                  # 字体粗细
-#     color='blue',                       # 标签颜色
-#     rotation=45,                        # 标签旋转角度
-#     fontname='Times New Roman'          # 字体名称
-# )
-#
-# plt.show()
-# 使用 plt.tick_params() 当你需要：
-# 调整刻度的样式（长度、宽度、颜色）
-# 控制刻度线的方向（向内/向外）
-# 批量设置x轴和y轴的样式
-# 控制刻度标签的显示位置
-#
-# 使用 plt.xticks() 当你需要：
-# 自定义刻度的位置
-# 修改刻度标签的文本内容
-# 设置具体的字体名称、样式
-# 旋转刻度标签
 
 
-# 设置网格线
-
-# x = np.array([1, 2, 3, 4, 5])
-# y = np.array([11, 21, 33, 41, 51])
-# plt.grid(axis='y', linestyle='--', linewidth=2,
-#          color='lightgray')
+# plt.rcParams['font.family'] = 'Times New Roman'
 #
+# # 直方图
+# scores = np.random.normal(loc=80, scale=10, size=100)
 #
-# plt.plot(x, y)
+# scores = np.clip(scores,0, 100)
+#
+# plt.title('Exam scores')
+# plt.xlabel('Score')
+# plt.ylabel('#of students')
+#
+# plt.hist(scores, color='lightblue',
+#          bins=10,
+#          edgecolor='black')
 #
 # plt.show()
 
 
-# 条形图
+# 子图
+plt.rcParams['font.family'] = 'Times New Roman'
 
-# categories = np.array(['apple', 'banana', 'cherry', 'orange'])
-# values = np.array([21, 22, 28, 15])
-#
-# plt.bar(categories, values, color='#365083FF')
-# plt.barh(categories, values, color='#365083FF')#水平条形图
-# plt.title("Fruit",
-#           family= 'Times New Roman',
-#           color = 'blue',
-#             fontsize=20 )
-#
-# plt.xlabel("Category", family= 'Times New Roman',
-#           color = 'blue',
-#             fontsize=20)
-# plt.ylabel("Value", family= 'Times New Roman',color = 'blue',
-#             fontsize=20)
-#
-# plt.xticks(family= 'Times New Roman')
-# plt.yticks(family= 'Times New Roman')
+figure, axes = plt.subplots(2, 2)
 
-# plt.show()
+x1 = np.array([0, 1, 1, 2, 3, 4, 5, 5, 6, 7, 8])
+y1 = np.array([65, 70, 71, 75, 84, 86, 89, 90, 92, 96, 98])
+
+scores = np.random.normal(loc=80, scale=10, size=100)
+scores = np.clip(scores,0, 100)
 
 
-# 饼图
 categories = np.array(['apple', 'banana', 'cherry', 'orange'])
 values = np.array([21, 22, 28, 15])
-colors = ['#365083FF', '#B783AFFF', '#F5A673FF', '#FCDB72FF']
 
-plt.pie(values, labels=categories,
-        autopct='%1.1f%%',
-        startangle=90,
-        colors=colors,
-        shadow=True,
-        explode=(0, 0, 0.1, 0),
-        textprops={
-            'fontname': 'Times New Roman',  # 设置字体
-            'fontsize': 12,  # 字体大小
-            'fontweight': 'normal',  # 字体粗细
-            'color': 'black'  # 字体颜色
-        } )
 
+x2 = [0, 1, 2, 3, 4, 5]
+y2 = [0, 1, 4, 9, 16, 25]
+
+
+axes[0, 0].scatter(x1, y1, color='blue')
+axes[0, 0].set_title('scatter')
+
+axes[0, 1].hist(scores, color='lightgrey', bins=10, edgecolor='black')
+axes[0, 1].set_title('histogram')
+
+axes[1, 0].pie(values, labels=categories, explode=(0, 0, 0,0.2), autopct='%1.1f%%', shadow=True,
+               startangle=90,
+               colors=['lightblue', 'lightgreen', 'lightpink', 'lightcyan'])
+axes[1, 0].set_title('pie')
+
+
+axes[1, 1].plot(x2, y2, color='green', linewidth=2)
+
+axes[1, 1].set_title('plot')
+
+plt.tight_layout()
+
+plt.show()
+
+import pandas as pd
+df = pd.read_csv('data.csv')
+
+type_counts = df['type1'].value_counts()  #计数
+
+
+plt.bar(type_counts.index, type_counts, ascending=False)  #ascending = False表示从低到高排列
+# 太长了可以用barh
+
+# 美观记得用
+plt.tight_layout()  #紧密排版
 plt.show()
 
 
@@ -253,7 +215,7 @@ plt.show()
 第11周总结
 学习内容:做笨方法学习python的习题，巩固基础
 
-完成情况: 1/7天
+完成情况: 2/7天
 
 收获:学到了大概的pandas和numby
 最后更新: 2025年12月
