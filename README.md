@@ -6,10 +6,10 @@
 
 | 项目 | 进度 |
 |------|------|
-| **总天数** | 88/100 天 |
+| **总天数** | 89/100 天 |
 | **开始日期** | 2025年9月 |
-| **代码文件数** | 61个 |
-| **提交次数** | 61 次 |
+| **代码文件数** | 62个 |
+| **提交次数** | 62 次 |
 
 ## 🗓️ 每日学习记录
 
@@ -77,10 +77,11 @@
 - **Day 86**: pandas2
 - **Day 87**: numby1
 - **Day 88**: numby2
+- **Day 89**: matplotlib1
 - 
 
 ### 🔄 进行中
-- **Day 89**: matplotlib
+- **Day 90**: matplotlib2
 ### ⏳ 待学习
 - 面向对象编程
 - 网络请求
@@ -110,80 +111,149 @@ https://space.bilibili.com/3546597933714079?spm_id_from=333.788.upinfo.head.clic
 
 ## 💻 今日代码示例
 
-# 广播
-# 广播时，每个维度必须是1或相等，才能成功！
-# array1 = np.array([[1, 2, 3, 4, 5],
-#                    [6, 7, 8, 9, 10],
-#                    [11, 12, 13, 14, 15],
-#                    [16, 17, 18, 19, 20],
-#                    [21, 22, 23, 24, 25]])
-# array2 = np.array([[1], [2], [3], [4], [5]])
-#
-# print(array1.shape)
-# print(array2.shape)
-#
-# print(array1 * array2)
+import matplotlib.pyplot as plt
+import numpy as np
 
-
-# 聚合函数
-# array = np.array([[1, 2, 3, 4, 5],
-#                    [6, 7, 8, 9, 10]])
-#
-# print(array.sum())
-# print(array.mean())
-# print(array.min())
-# print(array.max())
-# print(array.std())  #标准差
-# print(array.var())  #方差
-# print(array.argmax()) #求最大值所在的索引
+# x = np.array([2023, 2024, 2025, 2026])
+# y1 = np.array([20, 23, 26, 30])
+# y2 = np.array([22, 21, 26, 18])
+# y3 = np.array([15, 18, 36, 20])
+# line_styles = dict(marker='.',
+#          markersize=30,
+#          markerfacecolor='#365083FF',
+#          # markeredgecolor='#B783AFFF',
+#          markeredgewidth=1,
+#          linestyle='solid',
+#          linewidth=4)
+# #B783AFFF
+# #F5A673FF
+# #FCDB72FF
+# plt.plot(x, y1, color='#B783AFFF', **line_styles)
 #
 #
-# print(np.sum(array, axis=0)) #对行求和
-# print(np.sum(array, axis=1)) #对列求和
-
-# 过滤
-
-# ages = np.array([[18, 19, 25, 21, 20, 40, 65, 46, 89],
-#                 [55, 16, 22, 58, 40, 66, 99, 75, 60]])
+# plt.plot(x, y2, color='#F5A673FF', **line_styles)
 #
-# teenage = ages[ages < 18]
-# print(teenage)
 #
-# adults = ages[(ages >= 18 )& (ages < 65)]
-# print(adults)
+# plt.plot(x, y3, color='#FCDB72FF', **line_styles)
 #
-# seniors = ages[ages >= 65]
-# print(seniors)
 #
-# evens = ages[ages %2 == 0]
-# print(evens)
-# evens = ages[ages % 2 != 0]
+# plt.title("Class sizes",
+#           fontsize=20,
+#           fontweight='bold',
+#           family='Times New Roman',
+#           color='#F5A673FF')
 #
-# adults = np.where(ages >= 18 , ages, 0)
-# print(adults)
+# plt.tick_params(axis='both')
+# plt.xlabel("Year",
+#            fontsize=20,
+#           fontweight='bold',
+#           family='Times New Roman',
+#           color='#F5A673FF')
+#
+# plt.ylabel("Student size",
+#            fontsize=20,
+#           fontweight='bold',
+#           family='Times New Roman',
+#           color='#F5A673FF')
+#
+# plt.xticks(x, family='Times New Roman')
+# plt.yticks(family='Times New Roman')
+# plt.show()
+#
+# plt.figure(figsize=(8, 5))
+# x = [0, 1, 2, 3, 4, 5]
+# y = [0, 1, 4, 9, 16, 25]
+#
+# plt.plot(x, y)
 
-# 随机
+# 设置x轴刻度的位置和标签
+# plt.xticks(
+#     ticks=[0, 2, 4],                    # 显示刻度的位置
+#     labels=['起点', '中间', '终点'],     # 对应位置的标签
+#     fontsize=14,                        # 字体大小
+#     fontweight='bold',                  # 字体粗细
+#     color='blue',                       # 标签颜色
+#     rotation=45,                        # 标签旋转角度
+#     fontname='Times New Roman'          # 字体名称
+# )
+#
+# plt.show()
+# 使用 plt.tick_params() 当你需要：
+# 调整刻度的样式（长度、宽度、颜色）
+# 控制刻度线的方向（向内/向外）
+# 批量设置x轴和y轴的样式
+# 控制刻度标签的显示位置
+#
+# 使用 plt.xticks() 当你需要：
+# 自定义刻度的位置
+# 修改刻度标签的文本内容
+# 设置具体的字体名称、样式
+# 旋转刻度标签
 
-RNG = np.random.default_rng(seed=1)
 
-print(RNG.integers(1, 101, size=(3, 3)))
+# 设置网格线
 
-print(np.random.uniform(-1, 2, size=(3, 2)))
+# x = np.array([1, 2, 3, 4, 5])
+# y = np.array([11, 21, 33, 41, 51])
+# plt.grid(axis='y', linestyle='--', linewidth=2,
+#          color='lightgray')
+#
+#
+# plt.plot(x, y)
+#
+# plt.show()
 
-array = np.array([1, 2, 3, 4, 5])
-RNG.shuffle(array)
-print(array)
-names = np.array(['zz', 'guigui', 'mm', 'hh'])
-name = RNG.choice(names, size=(3, 3))
-print(name)
 
+# 条形图
+
+# categories = np.array(['apple', 'banana', 'cherry', 'orange'])
+# values = np.array([21, 22, 28, 15])
+#
+# plt.bar(categories, values, color='#365083FF')
+# plt.barh(categories, values, color='#365083FF')#水平条形图
+# plt.title("Fruit",
+#           family= 'Times New Roman',
+#           color = 'blue',
+#             fontsize=20 )
+#
+# plt.xlabel("Category", family= 'Times New Roman',
+#           color = 'blue',
+#             fontsize=20)
+# plt.ylabel("Value", family= 'Times New Roman',color = 'blue',
+#             fontsize=20)
+#
+# plt.xticks(family= 'Times New Roman')
+# plt.yticks(family= 'Times New Roman')
+
+# plt.show()
+
+
+# 饼图
+categories = np.array(['apple', 'banana', 'cherry', 'orange'])
+values = np.array([21, 22, 28, 15])
+colors = ['#365083FF', '#B783AFFF', '#F5A673FF', '#FCDB72FF']
+
+plt.pie(values, labels=categories,
+        autopct='%1.1f%%',
+        startangle=90,
+        colors=colors,
+        shadow=True,
+        explode=(0, 0, 0.1, 0),
+        textprops={
+            'fontname': 'Times New Roman',  # 设置字体
+            'fontsize': 12,  # 字体大小
+            'fontweight': 'normal',  # 字体粗细
+            'color': 'black'  # 字体颜色
+        } )
+
+plt.show()
 
 
 📈 每周总结
-第10周总结
+第11周总结
 学习内容:做笨方法学习python的习题，巩固基础
 
-完成情况: 7/7天
+完成情况: 1/7天
 
 收获:学到了大概的pandas和numby
 最后更新: 2025年12月
